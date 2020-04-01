@@ -732,7 +732,7 @@ services:
      - /var/lib/nginx/html/storage/framework/views:uid=100,gid=82
     network_mode: "host"
     ports:
-     - "64297:64297"
+     - "7017:7017"
 <<<<<<< HEAD
     image: "dtagdevsec/nginx:1903"
 =======

@@ -7,10 +7,10 @@
   debug:
     msg:
     - "*****    SSH Access:"
-    - "*****    ssh {{ ansible_user }}@{{ ansible_host }} -p 64295"
+    - "*****    ssh {{ ansible_user }}@{{ ansible_host }} -p 7014"
     - ""
     - "*****    Web UI:"
-    - "*****    https://{{ ansible_host }}:64297"
+    - "*****    https://{{ ansible_host }}:7017"
     - ""
     - "*****    Admin UI:"
-    - "*****    https://{{ ansible_host }}:64294"
+    - "*****    https://{{ ansible_host }}:7012"

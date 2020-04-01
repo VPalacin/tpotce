@@ -387,12 +387,12 @@ Once the installation is finished, the system will automatically reboot and you 
 
 All honeypot services are preconfigured and are starting automatically.
 
-You can login from your browser and access the Admin UI: `https://<your.ip>:64294` or via SSH to access the command line: `ssh -l tsec -p 64295 <your.ip>`
+You can login from your browser and access the Admin UI: `https://<your.ip>:7012` or via SSH to access the command line: `ssh -l tsec -p 7014 <your.ip>`
 
 - user: **[tsec or user]** *you chose during one of the post install methods*
 - pass: **[password]** *you chose during the installation*
 
-You can also login from your browser and access the Web UI: `https://<your.ip>:64297`
+You can also login from your browser and access the Web UI: `https://<your.ip>:7017`
 - user: **[user]** *you chose during the installation*
 - pass: **[password]** *you chose during the installation*
 
@@ -406,9 +406,9 @@ A list of all relevant ports is available as part of the [Technical Concept](#co
 
 Basically, you can forward as many TCP ports as you want, as honeytrap dynamically binds any TCP port that is not covered by the other honeypot daemons.
 
-In case you need external Admin UI access, forward TCP port 64294 to T-Pot, see below.
-In case you need external SSH access, forward TCP port 64295 to T-Pot, see below.
-In case you need external Web UI access, forward TCP port 64297 to T-Pot, see below.
+In case you need external Admin UI access, forward TCP port 7012 to T-Pot, see below.
+In case you need external SSH access, forward TCP port 7014 to T-Pot, see below.
+In case you need external Web UI access, forward TCP port 7017 to T-Pot, see below.
 
 <<<<<<< HEAD
 T-Pot requires outgoing git, http, https connections for updates (Debian, Docker, GitHub, PyPi) and attack submission (ewsposter, hpfeeds). Ports and availability may vary based on your geographical location.
@@ -448,9 +448,9 @@ We know, for some this may not be enough. So here come some ways to further insp
 
 <a name="ssh"></a>
 ## SSH and web access
-By default, the SSH daemon allows access on **tcp/64295** with a user / password combination and prevents credential brute forcing attempts using `fail2ban`. This also counts for Admin UI (**tcp/64294**) and Web UI (**tcp/64297**) access.<br>
+By default, the SSH daemon allows access on **tcp/7014** with a user / password combination and prevents credential brute forcing attempts using `fail2ban`. This also counts for Admin UI (**tcp/7012**) and Web UI (**tcp/7017**) access.<br>
 
-If you do not have a SSH client at hand and still want to access the machine via command line you can do so by accessing the Admin UI from `https://<your.ip>:64294`, enter
+If you do not have a SSH client at hand and still want to access the machine via command line you can do so by accessing the Admin UI from `https://<your.ip>:7012`, enter
 
 - user: **[tsec or user]** *you chose during one of the post install methods*
 - pass: **[password]** *you chose during the installation*
@@ -461,7 +461,7 @@ You can also add two factor authentication to Cockpit just by running `2fa.sh` o
 
 <a name="kibana"></a>
 ## Kibana Dashboard
-Just open a web browser and connect to `https://<your.ip>:64297`, enter
+Just open a web browser and connect to `https://<your.ip>:7017`, enter
 
 - user: **[user]** *you chose during the installation*
 - pass: **[password]** *you chose during the installation*

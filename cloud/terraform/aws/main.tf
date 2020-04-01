@@ -19,20 +19,20 @@ resource "aws_security_group" "tpot" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   ingress {
-    from_port   = 64294
-    to_port     = 64294
+    from_port   = 7012
+    to_port     = 7012
     protocol    = "tcp"
     cidr_blocks = var.admin_ip
   }
   ingress {
-    from_port   = 64295
-    to_port     = 64295
+    from_port   = 7014
+    to_port     = 7014
     protocol    = "tcp"
     cidr_blocks = var.admin_ip
   }
   ingress {
-    from_port   = 64297
-    to_port     = 64297
+    from_port   = 7017
+    to_port     = 7017
     protocol    = "tcp"
     cidr_blocks = var.admin_ip
   }

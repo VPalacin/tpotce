@@ -9,7 +9,7 @@ This [Terraform](https://www.terraform.io/) configuration can be used to provisi
   * [Debian Stretch](https://wiki.debian.org/Cloud/AmazonEC2Image/Stretch) (The T-Pot installation script will then upgrade this to Debian Sid)
 * AWS Security Group:
   * TCP/UDP ports <= 64000 open to the Internet
-  * TCP ports 64294, 64295 and 64297 open to a chosen administrative IP
+  * TCP ports 7012, 7014 and 7017 open to a chosen administrative IP
 
 [Cloud-init](https://cloudinit.readthedocs.io/en/latest/) is used to bootstrap the instance and install T-Pot on startup. Additional provisioning using Ansible etc. is not required.
 
@@ -32,7 +32,7 @@ The following resources are NOT automatically created and need to be specified i
 
 In `aws/variables.tf`, change the following variables to correspond to your existing EC2 infrastructure:
 
-* `admin_ip` - source IP address(es) that you will use to administer the system. Connections to TCP ports 64294, 64295 and 64297 will be allowed from this IP only. Multiple IPs or CIDR blocks can be specified in the format: `["127.0.0.1/32", "192.168.0.0/24"]`
+* `admin_ip` - source IP address(es) that you will use to administer the system. Connections to TCP ports 7012, 7014 and 7017 will be allowed from this IP only. Multiple IPs or CIDR blocks can be specified in the format: `["127.0.0.1/32", "192.168.0.0/24"]`
 * `ec2_vpc_id`
 * `ec2_subnet_id`
 * `ec2_region`
@@ -84,7 +84,7 @@ This can easily be extended to support other [Terraform providers](https://www.t
   * Public IP
 * Security Group:
   * TCP/UDP ports <= 64000 open to the Internet
-  * TCP ports 64294, 64295 and 64297 open to a chosen administrative IP
+  * TCP ports 7012, 7014 and 7017 open to a chosen administrative IP
 
 <a name="what-created-otc"></a>
 ### Open Telekom Cloud (OTC)
@@ -132,7 +132,7 @@ Settings for T-Pot:
 <a name="variables-aws"></a>
 ### Amazon Web Services (AWS)
 In `aws/variables.tf`, you can change the additional variables:
-* `admin_ip` - source IP address(es) that you will use to administer the system. Connections to TCP ports 64294, 64295 and 64297 will be allowed from this IP only. Multiple IPs or CIDR blocks can be specified in the format: `["127.0.0.1/32", "192.168.0.0/24"]`
+* `admin_ip` - source IP address(es) that you will use to administer the system. Connections to TCP ports 7012, 7014 and 7017 will be allowed from this IP only. Multiple IPs or CIDR blocks can be specified in the format: `["127.0.0.1/32", "192.168.0.0/24"]`
 * `ec2_vpc_id` - Specify an existing VPC ID
 * `ec2_subnet_id` - Specify an existing Subnet ID
 * `ec2_region`
@@ -238,11 +238,11 @@ This will perform the following actions:
 
 ### SSH
 
-Prior to the final reboot, you will temporarily be able to SSH to port 22 as per standard. Following the reboot, port 22 is used for the honeypot. The *real* SSH server is listening on port **64295**
+Prior to the final reboot, you will temporarily be able to SSH to port 22 as per standard. Following the reboot, port 22 is used for the honeypot. The *real* SSH server is listening on port **7014**
 
 ### Browser
 
-https://www.example.com:64297/
+https://www.example.com:7017/
 
 Replace with the FQDN of your EC2 instance. Refer to the [T-POT documentation](https://github.com/dtag-dev-sec/tpotce#ssh-and-web-access) for further details.
 =======

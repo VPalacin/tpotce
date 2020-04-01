@@ -34,7 +34,7 @@ myINFO="\
 Disclaimer:
 This script will install T-Pot on this system.
 By running the script you know what you are doing:
-1. SSH will be reconfigured to tcp/64295.
+1. SSH will be reconfigured to tcp/7014.
 <<<<<<< HEAD
 2. Your Debian installation will be upgraded to Sid / unstable.
 3. Please ensure other means of access to this system in case something goes wrong.
@@ -144,18 +144,18 @@ maxretry = 5
 [nginx-http-auth]
 enabled  = true
 filter   = nginx-http-auth
-port     = 64297
+port     = 7017
 logpath  = /data/nginx/log/error.log
 
 [pam-generic]
 enabled = true
-port    = 64294
+port    = 7012
 filter  = pam-generic
 logpath = /var/log/auth.log
 
 [sshd]
 enabled = true
-port    = 64295
+port    = 7014
 filter  = sshd
 logpath = /var/log/auth.log
 "
@@ -165,10 +165,10 @@ MACAddressPolicy=none
 "
 myCOCKPIT_SOCKET="[Socket]
 ListenStream=
-ListenStream=64294
+ListenStream=7012
 "
 mySSHPORT="
-Port 64295
+Port 7014
 "
 myCRONJOBS="
 # Check if updated images are available and download them

@@ -24,7 +24,7 @@ services:
      - /var/lib/nginx/html/storage/framework/views:uid=100,gid=82
     network_mode: "host"
     ports:
-     - "64297:64297"
+     - "7017:7017"
      - "127.0.0.1:64304:64304"
     image: "dtagdevsec/nginx:2006"
     read_only: true
