@@ -13,10 +13,10 @@ config_template = {'DATA': {'db_config': '/opt/tanner/db/db_config.json',
                             'tornado': '/opt/tanner/data/tornado.py',
                             'mako': '/opt/tanner/data/mako.py'
                             },                            
-                   'TANNER': {'host': '0.0.0.0', 'port': 8090},
-                   'WEB': {'host': '0.0.0.0', 'port': 8091},
-                   'API': {'host': '0.0.0.0', 'port': 8092},
-                   'PHPOX': {'host': '0.0.0.0', 'port': 8088},
+                   'TANNER': {'host': 'tanner', 'port': 8090},
+                   'WEB': {'host': 'tanner_web', 'port': 8091},
+                   'API': {'host': 'tanner_api', 'port': 8092, 'auth': False, 'auth_signature': 'tanner_api_auth'},
+                   'PHPOX': {'host': 'tanner_phpox', 'port': 8088},
                    'REDIS': {'host': 'tanner_redis', 'port': 6379, 'poolsize': 80, 'timeout': 1},
                    'EMULATORS': {'root_dir': '/opt/tanner'},
                    'EMULATOR_ENABLED': {'sqli': True, 'rfi': True, 'lfi': False, 'xss': True, 'cmd_exec': False,
@@ -25,6 +25,10 @@ config_template = {'DATA': {'db_config': '/opt/tanner/db/db_config.json',
                    'SQLI': {'type': 'SQLITE', 'db_name': 'tanner_db', 'host': 'localhost', 'user': 'root',
                             'password': 'user_pass'},
                    'XXE_INJECTION': {'OUT_OF_BAND': False},
+<<<<<<< HEAD
+=======
+                   'RFI': {"allow_insecure": True},
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
                    'DOCKER': {'host_image': 'busybox:latest'},
                    'LOGGER': {'log_debug': '/tmp/tanner/tanner.log', 'log_err': '/tmp/tanner/tanner.err'},
                    'MONGO': {'enabled': False, 'URI': 'mongodb://localhost'},
@@ -33,7 +37,12 @@ config_template = {'DATA': {'db_config': '/opt/tanner/db/db_config.json',
                    'LOCALLOG': {'enabled': True, 'PATH': '/var/log/tanner/tanner_report.json'},
                    'CLEANLOG': {'enabled': False},
                    'REMOTE_DOCKERFILE': {'GITHUB': "https://raw.githubusercontent.com/mushorg/tanner/master/docker/"
+<<<<<<< HEAD
                                                    "tanner/template_injection/Dockerfile"}
+=======
+                                                   "tanner/template_injection/Dockerfile"},
+                   'SESSIONS': {"delete_timeout": 300}
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
                    }
 
 

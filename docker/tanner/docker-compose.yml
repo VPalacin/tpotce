@@ -14,7 +14,11 @@ services:
     tty: true
     networks:
      - tanner_local
+<<<<<<< HEAD
     image: "dtagdevsec/redis:1903"
+=======
+    image: "dtagdevsec/redis:2006"
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     read_only: true
 
 # PHP Sandbox service
@@ -23,10 +27,16 @@ services:
     container_name: tanner_phpox
     restart: always
     stop_signal: SIGKILL
+    tmpfs:
+     - /tmp:uid=2000,gid=2000
     tty: true
     networks:
      - tanner_local
+<<<<<<< HEAD
     image: "dtagdevsec/phpox:1903"
+=======
+    image: "dtagdevsec/phpox:2006"
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     read_only: true
 
 # Tanner API Service
@@ -40,7 +50,11 @@ services:
     tty: true
     networks:
      - tanner_local
+<<<<<<< HEAD
     image: "dtagdevsec/tanner:1903"
+=======
+    image: "dtagdevsec/tanner:2006"
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     read_only: true
     volumes:
      - /data/tanner/log:/var/log/tanner
@@ -59,7 +73,13 @@ services:
     tty: true
     networks:
      - tanner_local
+<<<<<<< HEAD
     image: "dtagdevsec/tanner:1903"
+=======
+#    ports:
+#     - "127.0.0.1:8091:8091"
+    image: "dtagdevsec/tanner:2006"
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     command: tannerweb
     read_only: true
     volumes:
@@ -78,7 +98,11 @@ services:
     tty: true
     networks:
      - tanner_local
+<<<<<<< HEAD
     image: "dtagdevsec/tanner:1903"
+=======
+    image: "dtagdevsec/tanner:2006"
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     command: tanner
     read_only: true
     volumes:
@@ -100,6 +124,10 @@ services:
      - tanner_local
     ports:
      - "80:80"
+<<<<<<< HEAD
     image: "dtagdevsec/snare:1903"
+=======
+    image: "dtagdevsec/snare:2006"
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     depends_on:
      - tanner

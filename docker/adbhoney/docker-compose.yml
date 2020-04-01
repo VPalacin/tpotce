@@ -14,7 +14,11 @@ services:
      - adbhoney_local
     ports:
      - "5555:5555"
+<<<<<<< HEAD
     image: "dtagdevsec/adbhoney:1903"
+=======
+    image: "dtagdevsec/adbhoney:2006"
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     read_only: true
     volumes:
      - /data/adbhoney/log:/opt/adbhoney/log

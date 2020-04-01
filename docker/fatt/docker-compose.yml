@@ -12,6 +12,10 @@ services:
      - NET_ADMIN
      - SYS_NICE
      - NET_RAW
+<<<<<<< HEAD
     image: "dtagdevsec/fatt:1903"
+=======
+    image: "dtagdevsec/fatt:2006"
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     volumes:
      - /data/fatt/log:/opt/fatt/log

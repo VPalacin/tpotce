@@ -24,7 +24,11 @@ services:
     mem_limit: 4g
     ports:
      - "127.0.0.1:64298:9200"
+<<<<<<< HEAD
     image: "dtagdevsec/elasticsearch:1903"
+=======
+    image: "dtagdevsec/elasticsearch:2006"
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     volumes:
      - /data:/data
 
@@ -39,7 +43,11 @@ services:
         condition: service_healthy
     ports:
      - "127.0.0.1:64296:5601"
+<<<<<<< HEAD
     image: "dtagdevsec/kibana:1903"
+=======
+    image: "dtagdevsec/kibana:2006"
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 
 ## Logstash service
   logstash:
@@ -51,10 +59,14 @@ services:
         condition: service_healthy
     env_file:
      - /opt/tpot/etc/compose/elk_environment
+<<<<<<< HEAD
     image: "dtagdevsec/logstash:1903"
+=======
+    image: "dtagdevsec/logstash:2006"
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     volumes:
      - /data:/data
-     - /root/tpotce/docker/elk/logstash/dist/logstash.conf:/etc/logstash/conf.d/logstash.conf
+#     - /root/tpotce/docker/elk/logstash/dist/logstash.conf:/etc/logstash/conf.d/logstash.conf
 
 ## Elasticsearch-head service
   head:
@@ -66,5 +78,9 @@ services:
         condition: service_healthy
     ports:
      - "127.0.0.1:64302:9100"
+<<<<<<< HEAD
     image: "dtagdevsec/head:1903"
+=======
+    image: "dtagdevsec/head:2006"
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     read_only: true

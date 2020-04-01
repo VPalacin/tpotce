@@ -30,7 +30,11 @@ services:
      - "3389:3389"
      - "5432:5432"
      - "5900:5900"
+<<<<<<< HEAD
     image: "dtagdevsec/heralding:1903"
+=======
+    image: "dtagdevsec/heralding:2006"
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     read_only: true
     volumes:
      - /data/heralding/log:/var/log/heralding

@@ -1,6 +1,10 @@
 ![T-Pot](doc/tpotsocial.png)
 
+<<<<<<< HEAD
 T-Pot 19.03 runs on Debian (Sid), is based heavily on
+=======
+T-Pot 19.03 runs on Debian (Stable), is based heavily on
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 
 [docker](https://www.docker.com/), [docker-compose](https://docs.docker.com/compose/)
 
@@ -43,7 +47,6 @@ Furthermore we use the following tools
 
 
 # Table of Contents
-- [Changelog](#changelog)
 - [Technical Concept](#concept)
 - [System Requirements](#requirements)
 - [Installation](#installation)
@@ -74,6 +77,7 @@ Furthermore we use the following tools
 - [Credits](#credits)
 - [Stay tuned](#staytuned)
 - [Testimonial](#testimonial)
+<<<<<<< HEAD
 - [Fun Fact](#funfact)
 
 <a name="changelog"></a>
@@ -129,11 +133,17 @@ Furthermore we use the following tools
   - Reusable Ansible Playbook for OpenStack clouds
   - Example Showcase with our Open Telekom Cloud
   - Adaptable for other cloud providers
+=======
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 
 <a name="concept"></a>
 # Technical Concept
 
+<<<<<<< HEAD
 T-Pot is based on the network installer Debian (Stretch). During installation the whole system will be updated to Debian (Sid).
+=======
+T-Pot is based on the network installer Debian (Stable).
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 The honeypot daemons as well as other support components being used have been containerized using [docker](http://docker.io).
 This allows us to run multiple honeypot daemons on the same network interface while maintaining a small footprint and constrain each honeypot within its own environment.
 
@@ -302,7 +312,11 @@ In some cases it is necessary to install Debian 9.7 (Stretch) on your own:
  - Within your company you have to setup special policies, software etc.
  - You just like to stay on top of things.
 
+<<<<<<< HEAD
 The T-Pot Universal Installer will upgrade the system to Debian (Sid) and install all required T-Pot dependencies.
+=======
+The T-Pot Universal Installer will upgrade the system and install all required T-Pot dependencies.
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 
 Just follow these steps:
 
@@ -338,7 +352,11 @@ If you would like to contribute, you can add other cloud deployments like Chef o
 <a name="ansible"></a>
 ### Ansible Deployment
 You can find an [Ansible](https://www.ansible.com/) based T-Pot deployment in the [`cloud/ansible`](cloud/ansible) folder.  
+<<<<<<< HEAD
 The Playbook in the [`cloud/ansible/openstack`](cloud/ansible/openstack) folder is reusable for all OpenStack clouds out of the box.
+=======
+The Playbook in the [`cloud/ansible/openstack`](cloud/ansible/openstack) folder is reusable for all **OpenStack** clouds out of the box.
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 
 It first creates all resources (security group, network, subnet, router), deploys a new server and then installs and configures T-Pot.
 
@@ -351,7 +369,12 @@ You can find [Terraform](https://www.terraform.io/) configuration in the [`cloud
 
 This can be used to launch a virtual machine, bootstrap any dependencies and install T-Pot in a single step.
 
+<<<<<<< HEAD
 Configuration for Amazon Web Services (AWS) is currently included and this can easily be extended to support other [Terraform providers](https://www.terraform.io/docs/providers/index.html).
+=======
+Configuration for **Amazon Web Services** (AWS) and **Open Telekom Cloud** (OTC) is currently included.  
+This can easily be extended to support other [Terraform providers](https://www.terraform.io/docs/providers/index.html).
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 
 <a name="firstrun"></a>
 ## First Run
@@ -387,7 +410,11 @@ In case you need external Admin UI access, forward TCP port 64294 to T-Pot, see 
 In case you need external SSH access, forward TCP port 64295 to T-Pot, see below.
 In case you need external Web UI access, forward TCP port 64297 to T-Pot, see below.
 
+<<<<<<< HEAD
 T-Pot requires outgoing git, http, https connections for updates (Debian, Docker, GitHub, PyPi) and attack submission (ewsposter, hpfeeds). Ports and availability may vary based on your geographical location.
+=======
+T-Pot requires outgoing git, http, https connections for updates (Debian, Docker, GitHub, PyPi) and attack submission (ewsposter, hpfeeds). Ports and availability may vary based on your geographical location. Also during first install outgoing ICMP is required additionally to find the closest and fastest mirror to you.
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 
 <a name="updates"></a>
 # Updates
@@ -396,7 +423,11 @@ For the ones of you who want to live on the bleeding edge of T-Pot development w
 
 The Update script will:
  - **mercilessly** overwrite local changes to be in sync with the T-Pot master branch
+<<<<<<< HEAD
  - upgrade the system to the packages available in Debian (Sid)
+=======
+ - upgrade the system to the packages available in Debian (Stable)
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
  - update all resources to be in-sync with the T-Pot master branch
  - ensure all T-Pot relevant system files will be patched / copied into the original T-Pot state
  - restore your custom ews.cfg and HPFEED settings from `/data/ews/conf`
@@ -423,6 +454,8 @@ If you do not have a SSH client at hand and still want to access the machine via
 
 - user: **[tsec or user]** *you chose during one of the post install methods*
 - pass: **[password]** *you chose during the installation*
+
+You can also add two factor authentication to Cockpit just by running `2fa.sh` on the command line.
 
 ![Cockpit Terminal](doc/cockpit3.png)
 
@@ -487,9 +520,14 @@ We encourage you not to disable the data submission as it is the main purpose of
 
 <a name="hpfeeds-optin"></a>
 ## Opt-In HPFEEDS Data Submission
+<<<<<<< HEAD
 As an Opt-In it is now possible to also share T-Pot data with 3rd party HPFEEDS brokers, such as [SISSDEN](https://sissden.eu).  
 If you want to share your T-Pot data you simply have to register an account with a 3rd party broker with its own benefits towards the community. Once registered you will receive your credentials to share events with the broker. In T-Pot you simply run `hpfeeds_optin.sh` which will ask for your credentials, in case of SISSDEN this is just `Ident` and `Secret`, everything else is pre-configured.  
 It will automatically update `/opt/tpot/etc/tpot.yml` to deliver events to your desired broker.
+=======
+As an Opt-In it is now possible to also share T-Pot data with 3rd party HPFEEDS brokers.  
+If you want to share your T-Pot data you simply have to register an account with a 3rd party broker with its own benefits towards the community. You simply run `hpfeeds_optin.sh` which will ask for your credentials. It will automatically update `/opt/tpot/etc/tpot.yml` to deliver events to your desired broker.
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 
 The script can accept a config file as an argument, e.g. `./hpfeeds_optin.sh --conf=hpfeeds.cfg`
 
@@ -586,8 +624,11 @@ We will be releasing a new version of T-Pot about every 6-12 months.
 # Testimonial
 One of the greatest feedback we have gotten so far is by one of the Conpot developers:<br>
 ***"[...] I highly recommend T-Pot which is ... it's not exactly a swiss army knife .. it's more like a swiss army soldier, equipped with a swiss army knife. Inside a tank. A swiss tank. [...]"***
+<<<<<<< HEAD
 
 <a name="funfact"></a>
 # Fun Fact
 
 In an effort of saving the environment we are now brewing our own Mate Ice Tea and consumed 73 liters so far for the T-Pot 19.03 development 😇
+=======
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe

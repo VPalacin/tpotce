@@ -1,4 +1,8 @@
 not (host sicherheitstacho.eu or community.sicherheitstacho.eu) and
 not (host deb.debian.org) and
+<<<<<<< HEAD
 not (host index.docker.io or docker.io) and
 not (host hpfeeds.sissden.eu)
+=======
+not (host index.docker.io or docker.io)
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe

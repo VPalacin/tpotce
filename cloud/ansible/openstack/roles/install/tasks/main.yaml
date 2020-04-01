@@ -9,7 +9,11 @@
     repo: "https://github.com/dtag-dev-sec/tpotce.git"
     dest: /root/tpot
 
+<<<<<<< HEAD
 - name: Prepare to set user password 
+=======
+- name: Prepare to set user password
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
   set_fact:
     user_name: "{{ ansible_user }}"
     user_salt: "s0mew1ck3dTpoT"

@@ -18,8 +18,13 @@ RUN sed -i 's/dl-cdn/dl-2/g' /etc/apk/repositories && \
 #
 # Setup Tanner
     git clone --depth=1 https://github.com/mushorg/tanner /opt/tanner && \
-    cp /root/dist/config.py /opt/tanner/tanner/ && \
     cd /opt/tanner/ && \
+<<<<<<< HEAD
+=======
+#    git fetch origin pull/364/head:test && \	
+#    git checkout test && \
+    cp /root/dist/config.py /opt/tanner/tanner/ && \
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     pip3 install --no-cache-dir setuptools && \
     pip3 install --no-cache-dir -r requirements.txt && \
     python3 setup.py install && \
@@ -56,7 +61,11 @@ RUN sed -i 's/dl-cdn/dl-2/g' /etc/apk/repositories && \
     rm -rf /tmp/* /var/tmp/* && \
     rm -rf /var/cache/apk/*
 #
+<<<<<<< HEAD
 # Start conpot
+=======
+# Start tanner
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 STOPSIGNAL SIGKILL
 USER tanner:tanner
 WORKDIR /opt/tanner

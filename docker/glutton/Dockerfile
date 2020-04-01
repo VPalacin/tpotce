@@ -1,10 +1,15 @@
+<<<<<<< HEAD
 FROM alpine
+=======
+FROM alpine:latest
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 #
 # Include dist
 ADD dist/ /root/dist/
 # 
 # Setup apk
-RUN apk -U --no-cache add \
+RUN sed -i 's/dl-cdn/dl-2/g' /etc/apk/repositories && \
+    apk -U --no-cache add \
                    build-base \
                    git \
                    go \

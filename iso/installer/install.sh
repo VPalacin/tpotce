@@ -11,6 +11,7 @@ myPROGRESSBOXCONF=" --backtitle "$myBACKTITLE" --progressbox 24 80"
 mySITES="https://hub.docker.com https://github.com https://pypi.python.org https://debian.org"
 myTPOTCOMPOSE="/opt/tpot/etc/tpot.yml"
 myLSB_STABLE_SUPPORTED="stretch buster"
+<<<<<<< HEAD
 myLSB_TESTING_SUPPORTED="sid"
 myREMOTESITES="https://hub.docker.com https://github.com https://pypi.python.org https://debian.org"
 myPREINSTALLPACKAGES="aria2 apache2-utils curl dialog figlet fuse grc libcrack2 libpq-dev lsb-release netselect-apt net-tools software-properties-common toilet"
@@ -19,14 +20,29 @@ myINFO="\
 ########################################
 ### T-Pot Installer for Debian (Sid) ###
 ########################################
+=======
+myLSB_TESTING_SUPPORTED="stable"
+myREMOTESITES="https://hub.docker.com https://github.com https://pypi.python.org https://debian.org"
+myPREINSTALLPACKAGES="aria2 apache2-utils cracklib-runtime curl dialog figlet fuse grc libcrack2 libpq-dev lsb-release netselect-apt net-tools software-properties-common toilet"
+myINSTALLPACKAGES="aria2 apache2-utils apparmor apt-transport-https aufs-tools bash-completion build-essential ca-certificates cgroupfs-mount cockpit console-setup console-setup-linux cracklib-runtime curl debconf-utils dialog dnsutils docker.io docker-compose elasticsearch-curator ethtool fail2ban figlet genisoimage git glances grc haveged html2text htop iptables iw jq kbd libcrack2 libltdl7 libpam-google-authenticator man mosh multitail netselect-apt net-tools npm ntp openssh-server openssl pass pigz prips software-properties-common syslinux psmisc pv python3-pip toilet unattended-upgrades unzip vim wget wireless-tools wpasupplicant"
+myINFO="\
+###########################################
+### T-Pot Installer for Debian (Stable) ###
+###########################################
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 
 Disclaimer:
 This script will install T-Pot on this system.
 By running the script you know what you are doing:
 1. SSH will be reconfigured to tcp/64295.
+<<<<<<< HEAD
 2. Your Debian installation will be upgraded to Sid / unstable.
 3. Please ensure other means of access to this system in case something goes wrong.
 4. At best this script will be executed on the console instead through a SSH session.
+=======
+2. Please ensure other means of access to this system in case something goes wrong.
+3. At best this script will be executed on the console instead through a SSH session.
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 
 ########################################
 
@@ -157,6 +173,7 @@ Port 64295
 myCRONJOBS="
 # Check if updated images are available and download them
 27 1 * * *      root    docker-compose -f /opt/tpot/etc/tpot.yml pull
+<<<<<<< HEAD
 
 # Delete elasticsearch logstash indices older than 90 days
 27 4 * * *      root    curator --config /opt/tpot/etc/curator/curator.yml /opt/tpot/etc/curator/actions.yml
@@ -368,6 +385,219 @@ for i in $myVERSIONS
 done
 if [ "$mySUPPORT" = "FALSE" ];
   then
+=======
+
+# Delete elasticsearch logstash indices older than 90 days
+27 4 * * *      root    curator --config /opt/tpot/etc/curator/curator.yml /opt/tpot/etc/curator/actions.yml
+
+# Uploaded binaries are not supposed to be downloaded
+*/1 * * * *     root    mv --backup=numbered /data/dionaea/roots/ftp/* /data/dionaea/binaries/
+
+# Daily reboot
+27 3 * * *      root    systemctl stop tpot && docker stop \$(docker ps -aq) || docker rm \$(docker ps -aq) || reboot
+
+# Check for updated packages every sunday, upgrade and reboot
+27 16 * * 0     root    apt-fast autoclean -y && apt-fast autoremove -y && apt-fast update -y && apt-fast upgrade -y && sleep 10 && reboot
+"
+mySHELLCHECK='[[ $- == *i* ]] || return'
+myROOTPROMPT='PS1="\[\033[38;5;8m\][\[$(tput sgr0)\]\[\033[38;5;1m\]\u\[$(tput sgr0)\]\[\033[38;5;6m\]@\[$(tput sgr0)\]\[\033[38;5;4m\]\h\[$(tput sgr0)\]\[\033[38;5;6m\]:\[$(tput sgr0)\]\[\033[38;5;5m\]\w\[$(tput sgr0)\]\[\033[38;5;8m\]]\[$(tput sgr0)\]\[\033[38;5;1m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"'
+myUSERPROMPT='PS1="\[\033[38;5;8m\][\[$(tput sgr0)\]\[\033[38;5;2m\]\u\[$(tput sgr0)\]\[\033[38;5;6m\]@\[$(tput sgr0)\]\[\033[38;5;4m\]\h\[$(tput sgr0)\]\[\033[38;5;6m\]:\[$(tput sgr0)\]\[\033[38;5;5m\]\w\[$(tput sgr0)\]\[\033[38;5;8m\]]\[$(tput sgr0)\]\[\033[38;5;2m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"'
+myROOTCOLORS="export LS_OPTIONS='--color=auto'
+eval \"\`dircolors\`\"
+alias ls='ls \$LS_OPTIONS'
+alias ll='ls \$LS_OPTIONS -l'
+alias l='ls \$LS_OPTIONS -lA'"
+
+
+#################
+# II. Functions #
+#################
+
+# Create banners
+function fuBANNER {
+  toilet -f ivrit "$1"
+}
+
+# Create funny words for hostnames
+function fuRANDOMWORD {
+  local myWORDFILE="$1"
+  local myLINES=$(cat $myWORDFILE | wc -l)
+  local myRANDOM=$((RANDOM % $myLINES))
+  local myNUM=$((myRANDOM * myRANDOM % $myLINES + 1))
+  echo -n $(sed -n "$myNUM p" $myWORDFILE | tr -d \' | tr A-Z a-z)
+}
+
+# Do we have root?
+function fuGOT_ROOT {
+echo
+echo -n "### Checking for root: "
+if [ "$(whoami)" != "root" ];
+  then
+    echo "[ NOT OK ]"
+    echo "### Please run as root."
+    echo "### Example: sudo $0"
+    exit
+  else
+    echo "[ OK ]"
+fi
+}
+
+# Check for pre-installer package requirements.
+# If not present install them
+function fuCHECKPACKAGES {
+  export DEBIAN_FRONTEND=noninteractive
+  # Make sure dependencies for apt-fast are installed
+  myCURL=$(which curl)
+  myWGET=$(which wget)
+  mySUDO=$(which sudo)
+  if [ "$myCURL" == "" ] || [ "$myWGET" == "" ] || [ "$mySUDO" == "" ]
+    then
+      echo "### Installing deps for apt-fast"
+      apt-get -y update
+      apt-get -y install curl wget sudo
+  fi
+  echo "### Installing apt-fast"
+  /bin/bash -c "$(curl -sL https://raw.githubusercontent.com/ilikenwf/apt-fast/master/quick-install.sh)"
+  echo -n "### Checking for installer dependencies: "
+  local myPACKAGES="$1"
+  for myDEPS in $myPACKAGES;
+    do
+      myOK=$(dpkg -s $myDEPS 2>&1 | grep -w ok | awk '{ print $3 }' | head -n 1)
+      if [ "$myOK" != "ok" ];
+        then
+          echo "[ NOW INSTALLING ]"
+          apt-fast update -y
+          apt-fast install -y $myPACKAGES
+          break
+      fi
+  done
+  if [ "$myOK" = "ok" ];
+    then
+      echo "[ OK ]"
+  fi
+}
+
+# Check if remote sites are available
+function fuCHECKNET {
+  if [ "$myTPOT_DEPLOYMENT_TYPE" == "iso" ] || [ "$myTPOT_DEPLOYMENT_TYPE" == "user" ];
+    then
+      local mySITES="$1"
+      mySITESCOUNT=$(echo $mySITES | wc -w)
+      j=0
+      for i in $mySITES;
+        do
+          echo $(expr 100 \* $j / $mySITESCOUNT) | dialog --title "[ Availability check ]" --backtitle "$myBACKTITLE" --gauge "\n  Now checking: $i\n" 8 80
+          curl --connect-timeout 30 -IsS $i 2>&1>/dev/null
+          if [ $? -ne 0 ];
+            then
+              dialog --keep-window --backtitle "$myBACKTITLE" --title "[ Continue? ]" --yesno "\nAvailability check failed. You can continue, but the installation might fail." 10 50
+              if [ $? = 1 ];
+                then
+                  dialog --keep-window --backtitle "$myBACKTITLE" --title "[ Abort ]" --msgbox "\nInstallation aborted. Exiting the installer." 7 50
+                  exit
+                else
+                  break;
+              fi;
+          fi;
+        let j+=1
+        echo $(expr 100 \* $j / $mySITESCOUNT) | dialog --keep-window --title "[ Availability check ]" --backtitle "$myBACKTITLE" --gauge "\n  Now checking: $i\n" 8 80
+      done;
+  fi
+}
+
+# Install T-Pot dependencies
+function fuGET_DEPS {
+  export DEBIAN_FRONTEND=noninteractive
+  # Determine fastest mirror
+  echo
+  echo "### Determine fastest mirror for your location."
+  echo
+  netselect-apt -n -a amd64 stable && cp sources.list /etc/apt/
+  mySOURCESCHECK=$(cat /etc/apt/sources.list | grep -c stable)
+  if [ "$mySOURCESCHECK" == "0" ]
+    then
+      echo "### Automatic mirror selection failed, using main mirror."
+      # Point to Debian (stable)
+tee /etc/apt/sources.list <<EOF
+deb http://deb.debian.org/debian stable main contrib non-free
+deb-src http://deb.debian.org/debian stable main contrib non-free
+EOF
+  fi
+  echo
+  echo "### Getting update information."
+  echo
+  apt-fast -y update
+  echo
+  echo "### Upgrading packages."
+  echo
+  # Downlaod and upgrade packages, but silently keep existing configs
+  echo "docker.io docker.io/restart       boolean true" | debconf-set-selections -v
+  echo "debconf debconf/frontend select noninteractive" | debconf-set-selections -v
+  apt-fast -y dist-upgrade -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" --force-yes
+  echo
+  echo "### Installing T-Pot dependencies."
+  echo
+  apt-fast -y install $myINSTALLPACKAGES
+  # Remove exim4
+  echo "### Removing and holding back problematic packages ..."
+  apt-fast -y purge exim4-base mailutils pcp cockpit-pcp
+  apt-fast -y autoremove
+  apt-mark hold exim4-base mailutils pcp cockpit-pcp
+}
+
+# Check for other services
+function fuCHECK_PORTS {
+if [ "$myTPOT_DEPLOYMENT_TYPE" == "user" ];
+  then
+    echo
+    echo "### Checking for active services."
+    echo
+    grc netstat -tulpen
+    echo
+    echo "### Please review your running services."
+    echo "### We will take care of SSH (22), but other services i.e. FTP (21), TELNET (23), SMTP (25), HTTP (80), HTTPS (443), etc."
+    echo "### might collide with T-Pot's honeypots and prevent T-Pot from starting successfully."
+    echo
+    while [ 1 != 2 ]
+      do
+        read -s -n 1 -p "Continue [y/n]? " mySELECT
+	echo
+        case "$mySELECT" in
+          [y,Y])
+            break
+            ;;
+          [n,N])
+            exit
+            ;;
+        esac
+      done
+fi
+}
+
+############################
+# III. Pre-Installer phase #
+############################
+fuGOT_ROOT
+fuCHECKPACKAGES "$myPREINSTALLPACKAGES"
+
+#####################################
+# IV. Prepare installer environment #
+#####################################
+
+# Check for Debian release and extract command line arguments
+myLSB=$(lsb_release -c | awk '{ print $2 }')
+myVERSIONS="$myLSB_STABLE_SUPPORTED $myLSB_TESTING_SUPPORTED"
+mySUPPORT="FALSE"
+for i in $myVERSIONS
+  do
+    if [ "$myLSB" = "$i" ];
+      then
+        mySUPPORT="TRUE"
+    fi
+done
+if [ "$mySUPPORT" = "FALSE" ];
+  then
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     echo "Aborting. Debian $myLSB is not supported."
     exit
 fi
@@ -403,7 +633,11 @@ for i in "$@"
         echo "  A configuration example is available in \"tpotce/iso/installer/tpot.conf.dist\"."
         echo
         echo "--type=<[user, auto, iso]>"
+<<<<<<< HEAD
 	echo "  user, use this if you want to manually install a T-Pot on a Debian (testing) machine."
+=======
+	echo "  user, use this if you want to manually install a T-Pot on a Debian (Stable) machine."
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
         echo "  auto, implied if a configuration file is passed as an argument for automatic deployment."
         echo "  iso, use this if you are a T-Pot developer and want to install a T-Pot from a pre-compiled iso."
         echo
@@ -681,6 +915,7 @@ echo "$myNETWORK_WLANEXAMPLE" | tee -a /etc/network/interfaces
 # Let's make sure SSH roaming is turned off (CVE-2016-0777, CVE-2016-0778)
 fuBANNER "SSH roaming off"
 echo "UseRoaming no" | tee -a /etc/ssh/ssh_config
+<<<<<<< HEAD
 
 # Installing elasticdump, yq
 fuBANNER "Installing pkgs"
@@ -691,6 +926,18 @@ hash -r
 # Cloning T-Pot from GitHub
 fuBANNER "Cloning T-Pot"
 git clone https://github.com/fierytermite/tpotce /opt/tpot
+=======
+
+# Installing elasticdump, yq
+fuBANNER "Installing pkgs"
+npm install elasticdump -g
+pip3 install yq
+hash -r
+
+# Cloning T-Pot from GitHub
+fuBANNER "Cloning T-Pot"
+git clone https://github.com/dtag-dev-sec/tpotce /opt/tpot
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 
 # Let's create the T-Pot user
 fuBANNER "Create user"
@@ -791,7 +1038,11 @@ mkdir -p /data/adbhoney/downloads /data/adbhoney/log \
          /data/honeypy/log \
          /data/mailoney/log \
          /data/medpot/log \
+<<<<<<< HEAD
          /data/nginx/log \
+=======
+         /data/nginx/log /data/nginx/heimdall \
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
          /data/emobility/log \
          /data/ews/conf \
          /data/rdpy/log \

@@ -8,20 +8,25 @@ myGREEN="[0;32m"
 myWHITE="[0;0m"
 myBLUE="[0;34m"
 
-
 # Check for existing tpot.yml
 function fuCONFIGCHECK () {
   echo "### Checking for T-Pot configuration file ..."
-  echo -n "###### $myBLUE$myCONFIGFILE$myWHITE "
-  if ! [ -f $myCONFIGFILE ];
+  if ! [ -L $myCONFIGFILE ];
     then
-      echo
-      echo "[ $myRED""NOT OK""$myWHITE ] - No T-Pot configuration found."
-      echo "Please create a link to your desired config i.e. 'ln -s /opt/tpot/etc/compose/standard.yml /opt/tpot/etc/tpot.yml'."
-      echo
-      exit 1
+      echo -n "###### $myBLUE$myCONFIGFILE$myWHITE "
+      myFILE=$(head -n 1 $myCONFIGFILE | tr -d "()" | tr [:upper:] [:lower:] | awk '{ print $3 }')
+      myFILE+=".yml"
+      echo "[ $myRED""NOT OK""$myWHITE ] - Broken symlink, trying to reset to '$myFILE'."
+      rm -rf $myCONFIGFILE
+      ln -s $myCOMPOSEPATH/$myFILE $myCONFIGFILE
+  fi
+  if [ -L $myCONFIGFILE ];
+    then
+      echo "###### $myBLUE$myCONFIGFILE$myWHITE [ $myGREEN""OK""$myWHITE ]"
     else
-      echo "[ $myGREEN""OK""$myWHITE ]"
+      echo "[ $myRED""NOT OK""$myWHITE ] - Broken symlink and / or restore failed."
+      echo "Please create a link to your desired config i.e. 'ln -s /opt/tpot/etc/compose/standard.yml /opt/tpot/etc/tpot.yml'."
+      exit
   fi
 echo
 }
@@ -77,7 +82,11 @@ echo
 # Let's check for version
 function fuCHECK_VERSION () {
 local myMINVERSION="19.03.0"
+<<<<<<< HEAD
 local myMASTERVERSION="19.03.1"
+=======
+local myMASTERVERSION="19.03.3"
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 echo
 echo "### Checking for Release ID"
 myRELEASE=$(lsb_release -i | grep Debian -c)
@@ -178,7 +187,14 @@ function fuUPDATER () {
 export DEBIAN_FRONTEND=noninteractive
 echo "### Installing apt-fast"
 /bin/bash -c "$(curl -sL https://raw.githubusercontent.com/ilikenwf/apt-fast/master/quick-install.sh)"
+<<<<<<< HEAD
 local myPACKAGES="aria2 apache2-utils apparmor apt-transport-https aufs-tools bash-completion build-essential ca-certificates cgroupfs-mount cockpit cockpit-docker console-setup console-setup-linux curl debconf-utils dialog dnsutils docker.io docker-compose ethtool fail2ban figlet genisoimage git glances grc haveged html2text htop iptables iw jq kbd libcrack2 libltdl7 man mosh multitail netselect-apt net-tools npm ntp openssh-server openssl pass pigz prips software-properties-common syslinux psmisc pv python3-pip toilet unattended-upgrades unzip vim wget wireless-tools wpasupplicant"
+=======
+local myPACKAGES="aria2 apache2-utils apparmor apt-transport-https aufs-tools bash-completion build-essential ca-certificates cgroupfs-mount cockpit console-setup console-setup-linux cracklib-runtime curl debconf-utils dialog dnsutils docker.io docker-compose elasticsearch-curator ethtool fail2ban figlet genisoimage git glances grc haveged html2text htop iptables iw jq kbd libcrack2 libltdl7 libpam-google-authenticator man mosh multitail netselect-apt net-tools npm ntp openssh-server openssl pass pigz prips software-properties-common syslinux psmisc pv python3-elasticsearch-curator python3-pip toilet unattended-upgrades unzip vim wget wireless-tools wpasupplicant"
+echo "### Removing pip based install of elasticsearch-curator"
+pip3 uninstall elasticsearch-curator -y
+hash -r
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 echo "### Now upgrading packages ..."
 dpkg --configure -a
 apt-fast -y autoclean
@@ -191,8 +207,13 @@ echo "docker.io docker.io/restart       boolean true" | debconf-set-selections -
 echo "debconf debconf/frontend select noninteractive" | debconf-set-selections -v
 apt-fast -y dist-upgrade -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" --force-yes
 dpkg --configure -a
+<<<<<<< HEAD
 npm install "https://github.com/taskrabbit/elasticsearch-dump" -g
 pip3 install --upgrade elasticsearch-curator yq
+=======
+npm install elasticdump -g
+pip3 install --upgrade yq
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 hash -r
 echo "### Removing and holding back problematic packages ..."
 apt-fast -y purge exim4-base mailutils pcp cockpit-pcp
@@ -226,7 +247,7 @@ mkdir -p /data/adbhoney/downloads /data/adbhoney/log \
          /data/honeypy/log \
          /data/mailoney/log \
          /data/medpot/log \
-         /data/nginx/log \
+         /data/nginx/log /data/nginx/heimdall \
          /data/emobility/log \
          /data/ews/conf \
          /data/rdpy/log \
@@ -257,10 +278,17 @@ echo "### All objects will be overwritten upon import, make sure to run an expor
 }
 
 function fuRESTORE_EWSCFG () {
+<<<<<<< HEAD
 if [ -f '/data/ews/conf/ews.cfg' ] && ! grep 'ews.cfg' /opt/tpot/etc/tpot.yml > /dev/null; then
     echo
     echo "### Restoring volume mount for ews.cfg in tpot.yml"
     sed -i '/\/opt\/ewsposter\/ews.ip/a\\ \ \ \ \ - /data/ews/conf/ews.cfg:/opt/ewsposter/ews.cfg' /opt/tpot/etc/tpot.yml
+=======
+if [ -f '/data/ews/conf/ews.cfg' ] && ! grep 'ews.cfg' $myCONFIGFILE > /dev/null; then
+    echo
+    echo "### Restoring volume mount for ews.cfg in tpot.yml"
+    sed -i --follow-symlinks '/\/opt\/ewsposter\/ews.ip/a\\ \ \ \ \ - /data/ews/conf/ews.cfg:/opt/ewsposter/ews.cfg' $myCONFIGFILE
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 fi
 }
 

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 FROM alpine
+=======
+FROM alpine:latest
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 #
 # Include dist
 ADD dist/ /root/dist/
@@ -9,6 +13,7 @@ RUN    apk -U add \
                  ca-certificates \
                  curl \
                  file \
+<<<<<<< HEAD
                  geoip \
                  hiredis \
                  jansson \
@@ -85,6 +90,12 @@ RUN    apk -U add \
     make check && \
     make install && \
     make install-full && \
+=======
+                 libcap \
+                 wget && \
+    apk -U add --repository http://dl-cdn.alpinelinux.org/alpine/edge/community \
+                 suricata && \
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 #
 # Setup user, groups and configs
     addgroup -g 2000 suri && \
@@ -92,8 +103,11 @@ RUN    apk -U add \
     chmod 644 /etc/suricata/*.config && \
     cp /root/dist/suricata.yaml /etc/suricata/suricata.yaml && \
     cp /root/dist/*.bpf /etc/suricata/ && \
+<<<<<<< HEAD
     mkdir -p /etc/suricata/rules && \
     cp /opt/builder/rules/* /etc/suricata/rules/ && \
+=======
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 #
 # Download the latest EmergingThreats ruleset, replace rulebase and enable all rules
     cp /root/dist/update.sh /usr/bin/ && \

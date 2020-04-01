@@ -14,7 +14,11 @@ services:
      - citrixhoneypot_local
     ports:
      - "443:443"
+<<<<<<< HEAD
     image: "dtagdevsec/citrixhoneypot:1903"
+=======
+    image: "dtagdevsec/citrixhoneypot:2006"
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     read_only: true
     volumes:
      - /data/citrixhoneypot/logs:/opt/citrixhoneypot/logs

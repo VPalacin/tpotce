@@ -1,5 +1,36 @@
 # Changelog
 
+<<<<<<< HEAD
+=======
+## 20200316
+- **Move from Sid to Stable**
+  - Debian Stable has now all the packages and versions we need for T-Pot. As a consequence we can now move to the `stable` branch.
+
+## 20200310
+- **Add 2FA to Cockpit**
+  - Just run `2fa.sh` to enable two factor authentication in Cockpit.
+- **Find fastest mirror with netselect-apt**
+  - Netselect-apt will find the fastest mirror close to you (outgoing ICMP required).
+
+## 20200309
+- **Bump Nextgen to 20.06**
+  - All NextGen images have been rebuilt to their latest master.
+  - ElasticStack bumped to 7.6.1 (Elasticsearch will need at least 2048MB of RAM now, T-Pot at least 8GB of RAM) and tweak to accomodate changes of 7.x.
+  - Fixed errors in Tanner / Snare which will now handle downloads of malware via SSL and store them correctly (thanks to @afeena).
+  - Fixed errors in Heralding which will now improve on RDP connections (thanks to @johnnykv, @realsdx).
+  - Fixed error in honeytrap which will now build in Debian/Buster (thanks to @tillmannw).
+  - Mailoney is now logging in JSON format (thanks to @monsherko).
+  - Base T-Pot landing page on Heimdall.
+  - Tweaking of tools and some minor bug fixing
+
+## 20200116
+- **Bump ELK to latest 6.8.6**
+- **Update ISO image to fix upstream bug of missing kernel modules**
+- **Include dashboards for CitrixHoneypot**
+  - Please run `/opt/tpot/update.sh` for the necessary modifications, omit the reboot and run `/opt/tpot/bin/tped.sh` to (re-)select the NextGen installation type.
+  - This update requires the latest Kibana objects as well. Download the latest from https://raw.githubusercontent.com/dtag-dev-sec/tpotce/master/etc/objects/kibana_export.json.zip, unzip and import the objects within Kibana WebUI > Management > Saved Objects > Export / Import". All objects will be overwritten upon import, make sure to run an export first.
+
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 ## 20200115
 - **Prepare integration of CitrixHoneypot**
   - Prepare integration of [CitrixHoneypot](https://github.com/MalwareTech/CitrixHoneypot) by MalwareTech

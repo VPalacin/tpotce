@@ -1,6 +1,10 @@
 - name: Copy hpfeeds configuration file
   copy:
+<<<<<<< HEAD
     src: ../files/hpfeeds.cfg
+=======
+    src: hpfeeds.cfg
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     dest: /data/ews/conf
     owner: tpot
     group: tpot

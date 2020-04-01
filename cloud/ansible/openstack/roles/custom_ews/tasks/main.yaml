@@ -1,6 +1,10 @@
 - name: Copy ews configuration file
   template:
+<<<<<<< HEAD
     src: ../templates/ews.cfg
+=======
+    src: ews.cfg
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     dest: /data/ews/conf
     owner: root
     group: root

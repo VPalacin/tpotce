@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 FROM alpine 
+=======
+FROM alpine:latest
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 #
 # Install packages
 RUN apk -U --no-cache add \
@@ -27,7 +31,11 @@ RUN apk -U --no-cache add \
                         pylibemu && \ 
 #
 # Install mailoney from git
+<<<<<<< HEAD
     git clone --depth=1 https://github.com/awhitehatter/mailoney /opt/mailoney && \
+=======
+    git clone --depth=1 https://github.com/t3chn0m4g3/mailoney /opt/mailoney && \
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 #
 # Setup user, groups and configs
     addgroup -g 2000 mailoney && \

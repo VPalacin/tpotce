@@ -27,7 +27,11 @@ services:
      - "5060:5060/udp"
      - "5061:5061"
      - "27017:27017"
+<<<<<<< HEAD
     image: "dtagdevsec/dionaea:1903"
+=======
+    image: "dtagdevsec/dionaea:2006"
+>>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     read_only: true
     volumes:
      - /data/dionaea/roots/ftp:/opt/dionaea/var/dionaea/roots/ftp
