@@ -138,7 +138,7 @@ in-target update-grub; \
 <<<<<<< HEAD
 in-target git clone --depth=1 https://github.com/fierytermite/tpotce /opt/tpot; \
 =======
-in-target git clone --depth=1 https://github.com/dtag-dev-sec/tpotce /opt/tpot; \
+in-target git clone --depth=1 https://github.com/fierytermite/tpotce /opt/tpot; \
 >>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 in-target sed -i 's/allow-hotplug/auto/g' /etc/network/interfaces; \
 #in-target apt-get -y remove exim4-base; \

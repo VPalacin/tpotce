@@ -100,7 +100,7 @@ Import your SSH public key.
 <a name="clone-git"></a>
 # Clone Git Repository
 Clone the `tpotce` repository to your Ansible Master:  
-`git clone https://github.com/dtag-dev-sec/tpotce.git`  
+`git clone https://github.com/fierytermite/tpotce.git`  
 <<<<<<< HEAD
 All Ansible related files are located in the [`cloud/ansible/openstack`](../../cloud/ansible/openstack) folder.
 
@@ -269,7 +269,7 @@ After that, T-Pot gets installed and configured on the newly created host, optio
 
 <<<<<<< HEAD
 =======
-Once this is done, you can proceed with connecting/logging in to the T-Pot according to the [documentation](https://github.com/dtag-dev-sec/tpotce#ssh-and-web-access).
+Once this is done, you can proceed with connecting/logging in to the T-Pot according to the [documentation](https://github.com/fierytermite/tpotce#ssh-and-web-access).
 
 >>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 <a name="documentation"></a>

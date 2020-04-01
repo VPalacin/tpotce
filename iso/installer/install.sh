@@ -936,7 +936,7 @@ hash -r
 
 # Cloning T-Pot from GitHub
 fuBANNER "Cloning T-Pot"
-git clone https://github.com/dtag-dev-sec/tpotce /opt/tpot
+git clone https://github.com/fierytermite/tpotce /opt/tpot
 >>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 
 # Let's create the T-Pot user

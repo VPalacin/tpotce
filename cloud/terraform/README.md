@@ -46,7 +46,7 @@ myCONF_WEB_USER='webuser'
 myCONF_WEB_PW='w3b$ecret'
 ```
 
-This will be used to configure credentials for the T-Pot Kibana interface. Refer to [Options](https://github.com/dtag-dev-sec/tpotce#options) for more information.
+This will be used to configure credentials for the T-Pot Kibana interface. Refer to [Options](https://github.com/fierytermite/tpotce#options) for more information.
 
 ## Initialising
 
@@ -244,7 +244,7 @@ Prior to the final reboot, you will temporarily be able to SSH to port 22 as per
 
 https://www.example.com:7017/
 
-Replace with the FQDN of your EC2 instance. Refer to the [T-POT documentation](https://github.com/dtag-dev-sec/tpotce#ssh-and-web-access) for further details.
+Replace with the FQDN of your EC2 instance. Refer to the [T-POT documentation](https://github.com/fierytermite/tpotce#ssh-and-web-access) for further details.
 =======
 ```
 This will create your infrastructure and start a Cloud Server. On startup, the Server gets bootstrapped with cloud-init and will install T-Pot. Once this is done, the server will reboot.
@@ -253,5 +253,5 @@ If you want the remove the built infrastructure, you can run [`terraform destroy
 
 <a name="connecting"></a>
 ## Connecting to the Instance
-When the installation is completed, you can proceed with connecting/logging in to the T-Pot according to the [documentation](https://github.com/dtag-dev-sec/tpotce#ssh-and-web-access).
+When the installation is completed, you can proceed with connecting/logging in to the T-Pot according to the [documentation](https://github.com/fierytermite/tpotce#ssh-and-web-access).
 >>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
