@@ -18,11 +18,7 @@ services:
     ports:
      - "22:22"
      - "23:23"
-<<<<<<< HEAD
-    image: "dtagdevsec/cowrie:1903"
-=======
     image: "dtagdevsec/cowrie:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     read_only: true
     volumes:
      - /data/cowrie/downloads:/home/cowrie/cowrie/dl

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-FROM alpine:3.10
-=======
 FROM alpine:latest
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 #  
 # Include dist
 ADD dist/ /root/dist/
@@ -36,11 +32,7 @@ RUN sed -i 's/dl-cdn/dl-2/g' /etc/apk/repositories && \
     adduser -S -H -s /bin/ash -u 2000 -D -g 2000 heralding && \
     mkdir -p /var/log/heralding/ /etc/heralding && \
     mv /root/dist/heralding.yml /etc/heralding/ && \
-<<<<<<< HEAD
-    setcap cap_net_bind_service=+ep /usr/bin/python3.7 && \
-=======
     setcap cap_net_bind_service=+ep /usr/bin/python3.8 && \
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     chown -R heralding:heralding /var/log/heralding && \
 #
 # Clean up

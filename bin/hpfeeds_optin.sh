@@ -10,23 +10,6 @@ fi
 
 myTPOTYMLFILE="/opt/tpot/etc/tpot.yml"
 
-<<<<<<< HEAD
-function fuSISSDEN () {
-echo
-echo "You chose SISSDEN, you just need to provide ident and secret"
-echo
-myENABLE="true"
-myHOST="hpfeeds.sissden.eu"
-myPORT="10000"
-myCHANNEL="t-pot.events"
-myCERT="/opt/ewsposter/sissden.pem"
-read -p "Ident: " myIDENT
-read -p "Secret: " mySECRET
-myFORMAT="json"
-}
-
-=======
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 function fuGENERIC () {
 echo
 echo "You chose generic, please provide all the details of the broker"
@@ -122,12 +105,7 @@ echo
 echo
 echo "Please choose your broker"
 echo "---------------------------"
-<<<<<<< HEAD
-echo "[1] - SISSDEN"
-echo "[2] - Generic (enter details manually)"
-=======
 echo "[1] - Generic (enter details manually)"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 echo "[0] - Opt out of HPFEEDS"
 echo "[q] - Do not agree end exit"
 echo
@@ -137,13 +115,6 @@ while [ 1 != 2 ]
       echo $mySELECT
       case "$mySELECT" in
         [1])
-<<<<<<< HEAD
-	  fuSISSDEN
-          break
-          ;;
-        [2])
-=======
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 	  fuGENERIC
           break
           ;;

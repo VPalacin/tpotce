@@ -34,12 +34,8 @@ services:
      - adbhoney_local
     ports:
      - "5555:5555"
-<<<<<<< HEAD
-    image: "dtagdevsec/adbhoney:1903"
-=======
     image: "dtagdevsec/adbhoney:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
-    read_only: true
+    read_only: false
     volumes:
      - /data/adbhoney/log:/opt/adbhoney/log
      - /data/adbhoney/downloads:/opt/adbhoney/dl
@@ -54,12 +50,8 @@ services:
     ports:
      - "5000:5000/udp"
      - "8443:8443"
-<<<<<<< HEAD
-    image: "dtagdevsec/ciscoasa:1903"
-=======
     image: "dtagdevsec/ciscoasa:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
-    read_only: true
+    read_only: false
     volumes:
      - /data/ciscoasa/log:/var/log/ciscoasa
 
@@ -71,12 +63,8 @@ services:
      - citrixhoneypot_local
     ports:
      - "443:443"
-<<<<<<< HEAD
-    image: "dtagdevsec/citrixhoneypot:1903"
-=======
     image: "dtagdevsec/citrixhoneypot:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
-    read_only: true
+    read_only: false
     volumes:
      - /data/citrixhoneypot/logs:/opt/citrixhoneypot/logs       
 
@@ -97,12 +85,8 @@ services:
     ports:
      - "161:161"
      - "2404:2404"
-<<<<<<< HEAD
-    image: "dtagdevsec/conpot:1903"
-=======
     image: "dtagdevsec/conpot:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
-    read_only: true
+    read_only: false
     volumes:
      - /data/conpot/log:/var/log/conpot
 
@@ -122,12 +106,8 @@ services:
      - conpot_local_guardian_ast
     ports:
      - "10001:10001"
-<<<<<<< HEAD
-    image: "dtagdevsec/conpot:1903"
-=======
     image: "dtagdevsec/conpot:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
-    read_only: true
+    read_only: false
     volumes:
      - /data/conpot/log:/var/log/conpot
 
@@ -147,12 +127,8 @@ services:
      - conpot_local_ipmi
     ports:
      - "623:623"
-<<<<<<< HEAD
-    image: "dtagdevsec/conpot:1903"
-=======
     image: "dtagdevsec/conpot:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
-    read_only: true
+    read_only: false
     volumes:
      - /data/conpot/log:/var/log/conpot
 
@@ -173,12 +149,8 @@ services:
     ports:
      - "1025:1025"
      - "50100:50100"
-<<<<<<< HEAD
-    image: "dtagdevsec/conpot:1903"
-=======
     image: "dtagdevsec/conpot:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
-    read_only: true
+    read_only: false
     volumes:
      - /data/conpot/log:/var/log/conpot
 
@@ -194,12 +166,8 @@ services:
     ports:
      - "22:22"
      - "23:23"
-<<<<<<< HEAD
-    image: "dtagdevsec/cowrie:1903"
-=======
     image: "dtagdevsec/cowrie:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
-    read_only: true
+    read_only: false
     volumes:
      - /data/cowrie/downloads:/home/cowrie/cowrie/dl
      - /data/cowrie/keys:/home/cowrie/cowrie/etc
@@ -230,12 +198,8 @@ services:
      - "5060:5060/udp"
      - "5061:5061"
      - "27017:27017"
-<<<<<<< HEAD
-    image: "dtagdevsec/dionaea:1903"
-=======
     image: "dtagdevsec/dionaea:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
-    read_only: true
+    read_only: false
     volumes:
      - /data/dionaea/roots/ftp:/opt/dionaea/var/dionaea/roots/ftp
      - /data/dionaea/roots/tftp:/opt/dionaea/var/dionaea/roots/tftp
@@ -256,12 +220,8 @@ services:
     network_mode: "host"
     cap_add:
      - NET_ADMIN
-<<<<<<< HEAD
-    image: "dtagdevsec/glutton:1903"
-=======
     image: "dtagdevsec/glutton:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
-    read_only: true
+    read_only: false
     volumes:
      - /data/glutton/log:/var/log/glutton
 #     - /root/tpotce/docker/glutton/dist/rules.yaml:/opt/glutton/rules/rules.yaml
@@ -290,12 +250,8 @@ services:
      - "1080:1080"
      - "5432:5432"
      - "5900:5900"
-<<<<<<< HEAD
-    image: "dtagdevsec/heralding:1903"
-=======
     image: "dtagdevsec/heralding:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
-    read_only: true
+    read_only: false
     volumes:
      - /data/heralding/log:/var/log/heralding
 
@@ -313,12 +269,8 @@ services:
      - "2324:2324"
      - "4096:4096"
      - "9200:9200"
-<<<<<<< HEAD
-    image: "dtagdevsec/honeypy:1903"
-=======
     image: "dtagdevsec/honeypy:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
-    read_only: true
+    read_only: false
     volumes:
      - /data/honeypy/log:/opt/honeypy/log
 
@@ -336,12 +288,8 @@ services:
      - mailoney_local
     ports:
      - "25:25"
-<<<<<<< HEAD
-    image: "dtagdevsec/mailoney:1903"
-=======
     image: "dtagdevsec/mailoney:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
-    read_only: true
+    read_only: false
     volumes:
      - /data/mailoney/log:/opt/mailoney/logs
 
@@ -353,12 +301,8 @@ services:
      - medpot_local
     ports:
      - "2575:2575"
-<<<<<<< HEAD
-    image: "dtagdevsec/medpot:1903"
-=======
     image: "dtagdevsec/medpot:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
-    read_only: true
+    read_only: false
     volumes:
      - /data/medpot/log/:/var/log/medpot
 
@@ -378,12 +322,8 @@ services:
      - rdpy_local
     ports:
      - "3389:3389"
-<<<<<<< HEAD
-    image: "dtagdevsec/rdpy:1903"
-=======
     image: "dtagdevsec/rdpy:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
-    read_only: true
+    read_only: false
     volumes:
      - /data/rdpy/log:/var/log/rdpy
 
@@ -395,12 +335,8 @@ services:
     tty: true
     networks:
      - tanner_local
-<<<<<<< HEAD
-    image: "dtagdevsec/redis:1903"
-=======
     image: "dtagdevsec/redis:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
-    read_only: true
+    read_only: false
 
 ## PHP Sandbox service
   tanner_phpox:
@@ -409,12 +345,8 @@ services:
     tty: true
     networks:
      - tanner_local
-<<<<<<< HEAD
-    image: "dtagdevsec/phpox:1903"
-=======
     image: "dtagdevsec/phpox:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
-    read_only: true
+    read_only: false
 
 ## Tanner API Service
   tanner_api:
@@ -425,12 +357,8 @@ services:
     tty: true
     networks:
      - tanner_local
-<<<<<<< HEAD
-    image: "dtagdevsec/tanner:1903"
-=======
     image: "dtagdevsec/tanner:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
-    read_only: true
+    read_only: false
     volumes:
      - /data/tanner/log:/var/log/tanner
     command: tannerapi
@@ -438,23 +366,6 @@ services:
      - tanner_redis
 
 ## Tanner WEB Service
-<<<<<<< HEAD
-  tanner_web:
-    container_name: tanner_web
-    restart: always
-    tmpfs:
-     - /tmp/tanner:uid=2000,gid=2000
-    tty: true
-    networks:
-     - tanner_local
-    image: "dtagdevsec/tanner:1903"
-    command: tannerweb
-    read_only: true
-    volumes:
-     - /data/tanner/log:/var/log/tanner
-    depends_on:
-     - tanner_redis
-=======
 # tanner_web:
 #   container_name: tanner_web
 #   restart: always
@@ -465,12 +376,11 @@ services:
 #    - tanner_local
 #   image: "dtagdevsec/tanner:2006"
 #   command: tannerweb
-#   read_only: true
+#   read_only: false
 #   volumes:
 #    - /data/tanner/log:/var/log/tanner
 #   depends_on:
 #    - tanner_redis
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 
 ## Tanner Service
   tanner:
@@ -481,13 +391,9 @@ services:
     tty: true
     networks:
      - tanner_local
-<<<<<<< HEAD
-    image: "dtagdevsec/tanner:1903"
-=======
     image: "dtagdevsec/tanner:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     command: tanner
-    read_only: true
+    read_only: false
     volumes:
      - /data/tanner/log:/var/log/tanner
      - /data/tanner/files:/opt/tanner/files
@@ -505,11 +411,7 @@ services:
      - tanner_local
     ports:
      - "80:80"
-<<<<<<< HEAD
-    image: "dtagdevsec/snare:1903"
-=======
     image: "dtagdevsec/snare:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     depends_on:
      - tanner
 
@@ -527,11 +429,7 @@ services:
      - NET_ADMIN
      - SYS_NICE
      - NET_RAW
-<<<<<<< HEAD
-    image: "dtagdevsec/fatt:1903"
-=======
     image: "dtagdevsec/fatt:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     volumes:
      - /data/fatt/log:/opt/fatt/log
 
@@ -540,12 +438,8 @@ services:
     container_name: p0f
     restart: always
     network_mode: "host"
-<<<<<<< HEAD
-    image: "dtagdevsec/p0f:1903"
-=======
     image: "dtagdevsec/p0f:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
-    read_only: true
+    read_only: false
     volumes:
      - /data/p0f/log:/var/log/p0f
 
@@ -561,11 +455,7 @@ services:
      - NET_ADMIN
      - SYS_NICE
      - NET_RAW
-<<<<<<< HEAD
-    image: "dtagdevsec/suricata:1903"
-=======
     image: "dtagdevsec/suricata:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     volumes:
      - /data/suricata/log:/var/log/suricata
 
@@ -582,12 +472,8 @@ services:
      - cyberchef_local
     ports:
      - "127.0.0.1:64299:8000"
-<<<<<<< HEAD
-    image: "dtagdevsec/cyberchef:1903"
-=======
     image: "dtagdevsec/cyberchef:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
-    read_only: true
+    read_only: false
 
 #### ELK
 ## Elasticsearch service
@@ -610,11 +496,7 @@ services:
     mem_limit: 4g
     ports:
      - "127.0.0.1:64298:9200"
-<<<<<<< HEAD
-    image: "dtagdevsec/elasticsearch:1903"
-=======
     image: "dtagdevsec/elasticsearch:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     volumes:
      - /data:/data
 
@@ -627,11 +509,7 @@ services:
         condition: service_healthy
     ports:
      - "127.0.0.1:64296:5601"
-<<<<<<< HEAD
-    image: "dtagdevsec/kibana:1903"
-=======
     image: "dtagdevsec/kibana:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 
 ## Logstash service
   logstash:
@@ -642,11 +520,7 @@ services:
         condition: service_healthy
     env_file:
      - /opt/tpot/etc/compose/elk_environment
-<<<<<<< HEAD
-    image: "dtagdevsec/logstash:1903"
-=======
     image: "dtagdevsec/logstash:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     volumes:
      - /data:/data
 
@@ -659,9 +533,8 @@ services:
         condition: service_healthy
     ports:
      - "127.0.0.1:64302:9100"
-<<<<<<< HEAD
-    image: "dtagdevsec/head:1903"
-    read_only: true
+    image: "dtagdevsec/head:2006"
+    read_only: false
 
 # Ewsposter service
 #  ewsposter:
@@ -680,36 +553,11 @@ services:
 #     - EWS_HPFEEDS_FORMAT=json
 #    env_file:
 #     - /opt/tpot/etc/compose/elk_environment
-#    image: "dtagdevsec/ewsposter:1903"
+#    image: "dtagdevsec/head:2006"  
 #    volumes:
 #     - /data:/data
 #     - /data/ews/conf/ews.ip:/opt/ewsposter/ews.ip
-=======
-    image: "dtagdevsec/head:2006"
-    read_only: true
 
-# Ewsposter service
-  ewsposter:
-    container_name: ewsposter
-    restart: always
-    networks:
-     - ewsposter_local
-    environment:
-     - EWS_HPFEEDS_ENABLE=false
-     - EWS_HPFEEDS_HOST=host
-     - EWS_HPFEEDS_PORT=port
-     - EWS_HPFEEDS_CHANNELS=channels
-     - EWS_HPFEEDS_IDENT=user
-     - EWS_HPFEEDS_SECRET=secret
-     - EWS_HPFEEDS_TLSCERT=false
-     - EWS_HPFEEDS_FORMAT=json
-    env_file:
-     - /opt/tpot/etc/compose/elk_environment
-    image: "dtagdevsec/ewsposter:2006"
-    volumes:
-     - /data:/data
-     - /data/ews/conf/ews.ip:/opt/ewsposter/ews.ip
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 
 # Nginx service
   nginx:
@@ -733,13 +581,9 @@ services:
     network_mode: "host"
     ports:
      - "7017:7017"
-<<<<<<< HEAD
-    image: "dtagdevsec/nginx:1903"
-=======
      - "127.0.0.1:64304:64304"
     image: "dtagdevsec/nginx:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
-    read_only: true
+    read_only: false
     volumes:
      - /data/nginx/cert/:/etc/nginx/cert/:ro
      - /data/nginx/conf/nginxpasswd:/etc/nginx/nginxpasswd:ro
@@ -756,10 +600,6 @@ services:
      - spiderfoot_local
     ports:
      - "127.0.0.1:64303:8080"
-<<<<<<< HEAD
-    image: "dtagdevsec/spiderfoot:1903"
-=======
     image: "dtagdevsec/spiderfoot:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     volumes:
      - /data/spiderfoot/spiderfoot.db:/home/spiderfoot/spiderfoot.db

@@ -39,7 +39,7 @@ services:
      - "5432:5432"
      - "5900:5900"
     image: "dtagdevsec/heralding:1903"
-    read_only: true
+    read_only: false
     volumes:
      - /data/heralding/log:/var/log/heralding
 
@@ -53,7 +53,7 @@ services:
     cap_add:
      - NET_ADMIN
     image: "dtagdevsec/honeytrap:1903"
-    read_only: true
+    read_only: false
     volumes:
      - /data/honeytrap/attacks:/opt/honeytrap/var/attacks
      - /data/honeytrap/downloads:/opt/honeytrap/var/downloads
@@ -70,7 +70,7 @@ services:
     restart: always
     network_mode: "host"
     image: "dtagdevsec/p0f:1903"
-    read_only: true
+    read_only: false
     volumes:
      - /data/p0f/log:/var/log/p0f
 
@@ -104,7 +104,7 @@ services:
     ports:
      - "127.0.0.1:64299:8000"
     image: "dtagdevsec/cyberchef:1903"
-    read_only: true
+    read_only: false
 
 #### ELK
 ## Elasticsearch service
@@ -165,7 +165,7 @@ services:
     ports:
      - "127.0.0.1:64302:9100"
     image: "dtagdevsec/head:1903"
-    read_only: true
+    read_only: false
 
 # Ewsposter service
   ewsposter:
@@ -204,7 +204,7 @@ services:
     ports:
      - "7017:7017"
     image: "dtagdevsec/nginx:1903"
-    read_only: true
+    read_only: false
     volumes:
      - /data/nginx/cert/:/etc/nginx/cert/:ro
      - /data/nginx/conf/nginxpasswd:/etc/nginx/nginxpasswd:ro

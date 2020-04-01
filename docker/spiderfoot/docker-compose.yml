@@ -14,10 +14,6 @@ services:
      - spiderfoot_local
     ports:
      - "127.0.0.1:64303:8080"
-<<<<<<< HEAD
-    image: "dtagdevsec/spiderfoot:1903"
-=======
     image: "dtagdevsec/spiderfoot:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     volumes:
      - /data/spiderfoot/spiderfoot.db:/home/spiderfoot/spiderfoot.db

@@ -25,10 +25,7 @@ config_template = {'DATA': {'db_config': '/opt/tanner/db/db_config.json',
                    'SQLI': {'type': 'SQLITE', 'db_name': 'tanner_db', 'host': 'localhost', 'user': 'root',
                             'password': 'user_pass'},
                    'XXE_INJECTION': {'OUT_OF_BAND': False},
-<<<<<<< HEAD
-=======
                    'RFI': {"allow_insecure": True},
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
                    'DOCKER': {'host_image': 'busybox:latest'},
                    'LOGGER': {'log_debug': '/tmp/tanner/tanner.log', 'log_err': '/tmp/tanner/tanner.err'},
                    'MONGO': {'enabled': False, 'URI': 'mongodb://localhost'},
@@ -37,12 +34,8 @@ config_template = {'DATA': {'db_config': '/opt/tanner/db/db_config.json',
                    'LOCALLOG': {'enabled': True, 'PATH': '/var/log/tanner/tanner_report.json'},
                    'CLEANLOG': {'enabled': False},
                    'REMOTE_DOCKERFILE': {'GITHUB': "https://raw.githubusercontent.com/mushorg/tanner/master/docker/"
-<<<<<<< HEAD
-                                                   "tanner/template_injection/Dockerfile"}
-=======
                                                    "tanner/template_injection/Dockerfile"},
                    'SESSIONS': {"delete_timeout": 300}
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
                    }
 
 

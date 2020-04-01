@@ -1,11 +1,8 @@
 FROM alpine
 #
-<<<<<<< HEAD
-=======
 # VARS
 ENV ES_VER=7.6.1 \
     JAVA_HOME=/usr/lib/jvm/java-11-openjdk
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 # Include dist
 ADD dist/ /root/dist/
 #
@@ -16,22 +13,13 @@ RUN sed -i 's/dl-cdn/dl-2/g' /etc/apk/repositories && \
              bash \
              curl \
              nss \
-<<<<<<< HEAD
-             openjdk8-jre && \
-=======
              openjdk11-jre && \
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 #
 # Get and install packages
     cd /root/dist/ && \
     mkdir -p /usr/share/elasticsearch/ && \
-<<<<<<< HEAD
-    aria2c -s 16 -x 16 https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.8.2.tar.gz && \
-    tar xvfz elasticsearch-6.8.2.tar.gz --strip-components=1 -C /usr/share/elasticsearch/ && \
-=======
     aria2c -s 16 -x 16 https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-$ES_VER-linux-x86_64.tar.gz && \
     tar xvfz elasticsearch-$ES_VER-linux-x86_64.tar.gz --strip-components=1 -C /usr/share/elasticsearch/ && \
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 #
 # Add and move files
     cd /root/dist/ && \

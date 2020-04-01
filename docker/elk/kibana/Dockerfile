@@ -1,13 +1,8 @@
-<<<<<<< HEAD
-FROM node:10.15.2-alpine
-#
-=======
 FROM node:10.19.0-alpine
 #
 # VARS
 ENV KB_VER=7.6.1
 # 
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 # Include dist
 ADD dist/ /root/dist/
 #
@@ -20,22 +15,6 @@ RUN sed -i 's/dl-cdn/dl-2/g' /etc/apk/repositories && \
 # Get and install packages
     cd /root/dist/ && \
     mkdir -p /usr/share/kibana/ && \
-<<<<<<< HEAD
-    aria2c -s 16 -x 16 https://artifacts.elastic.co/downloads/kibana/kibana-6.8.2-linux-x86_64.tar.gz && \
-    tar xvfz kibana-6.8.2-linux-x86_64.tar.gz --strip-components=1 -C /usr/share/kibana/ && \
-#
-# Kibana's bundled node does not work in alpine
-    rm /usr/share/kibana/node/bin/node && \
-    ln -s /usr/bin/node /usr/share/kibana/node/bin/node && \
-#
-# Add and move files
-    cd /root/dist/ && \
-    cp kibana.svg /usr/share/kibana/src/ui/public/images/kibana.svg && \
-    cp kibana.svg /usr/share/kibana/src/ui/public/icons/kibana.svg && \
-    cp elk.ico /usr/share/kibana/src/ui/public/assets/favicons/favicon.ico && \
-    cp elk.ico /usr/share/kibana/src/ui/public/assets/favicons/favicon-16x16.png && \
-    cp elk.ico /usr/share/kibana/src/ui/public/assets/favicons/favicon-32x32.png && \
-=======
     aria2c -s 16 -x 16 https://artifacts.elastic.co/downloads/kibana/kibana-$KB_VER-linux-x86_64.tar.gz && \
     tar xvfz kibana-$KB_VER-linux-x86_64.tar.gz --strip-components=1 -C /usr/share/kibana/ && \
 #
@@ -50,7 +29,6 @@ RUN sed -i 's/dl-cdn/dl-2/g' /etc/apk/repositories && \
 #    cp elk.ico /usr/share/kibana/src/ui/public/assets/favicons/favicon.ico && \
 #    cp elk.ico /usr/share/kibana/src/ui/public/assets/favicons/favicon-16x16.png && \
 #    cp elk.ico /usr/share/kibana/src/ui/public/assets/favicons/favicon-32x32.png && \
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 #
 # Setup user, groups and configs
     sed -i 's/#server.basePath: ""/server.basePath: "\/kibana"/' /usr/share/kibana/config/kibana.yml && \
@@ -58,25 +36,14 @@ RUN sed -i 's/dl-cdn/dl-2/g' /etc/apk/repositories && \
     sed -i 's/#server.host: "localhost"/server.host: "0.0.0.0"/' /usr/share/kibana/config/kibana.yml && \
     sed -i 's/#elasticsearch.hosts: \["http:\/\/localhost:9200"\]/elasticsearch.hosts: \["http:\/\/elasticsearch:9200"\]/' /usr/share/kibana/config/kibana.yml && \
     sed -i 's/#server.rewriteBasePath: false/server.rewriteBasePath: false/' /usr/share/kibana/config/kibana.yml && \
-<<<<<<< HEAD
-    sed -i "s/#005571/#e20074/g" /usr/share/kibana/built_assets/css/plugins/kibana/index.css && \
-    sed -i "s/#007ba4/#9e0051/g" /usr/share/kibana/built_assets/css/plugins/kibana/index.css && \
-    sed -i "s/#00465d/#4f0028/g" /usr/share/kibana/built_assets/css/plugins/kibana/index.css && \
-=======
 #    sed -i "s/#005571/#e20074/g" /usr/share/kibana/built_assets/css/plugins/kibana/index.css && \
 #    sed -i "s/#007ba4/#9e0051/g" /usr/share/kibana/built_assets/css/plugins/kibana/index.css && \
 #    sed -i "s/#00465d/#4f0028/g" /usr/share/kibana/built_assets/css/plugins/kibana/index.css && \
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     echo "xpack.infra.enabled: false" >> /usr/share/kibana/config/kibana.yml && \ 
     echo "xpack.logstash.enabled: false" >> /usr/share/kibana/config/kibana.yml && \
     echo "xpack.canvas.enabled: false" >> /usr/share/kibana/config/kibana.yml && \
     echo "xpack.spaces.enabled: false" >> /usr/share/kibana/config/kibana.yml && \
     echo "xpack.apm.enabled: false" >> /usr/share/kibana/config/kibana.yml && \
-<<<<<<< HEAD
-    echo "xpack.uptime.enabled: false" >> /usr/share/kibana/config/kibana.yml && \
-    rm -rf /usr/share/kibana/optimize/bundles/* && \
-    /usr/share/kibana/bin/kibana --optimize && \
-=======
     echo "xpack.security.enabled: false" >> /usr/share/kibana/config/kibana.yml && \
     echo "xpack.uptime.enabled: false" >> /usr/share/kibana/config/kibana.yml && \
     echo "xpack.siem.enabled: false" >> /usr/share/kibana/config/kibana.yml && \
@@ -84,7 +51,6 @@ RUN sed -i 's/dl-cdn/dl-2/g' /etc/apk/repositories && \
     echo "elasticsearch.shardTimeout: 60000" >> /usr/share/kibana/config/kibana.yml && \
     rm -rf /usr/share/kibana/optimize/bundles/* && \
     /usr/share/kibana/bin/kibana --optimize --allow-root && \
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     addgroup -g 2000 kibana && \
     adduser -S -H -s /bin/ash -u 2000 -D -g 2000 kibana && \
     chown -R kibana:kibana /usr/share/kibana/ && \

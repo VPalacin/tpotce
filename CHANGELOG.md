@@ -1,7 +1,5 @@
 # Changelog
 
-<<<<<<< HEAD
-=======
 ## 20200316
 - **Move from Sid to Stable**
   - Debian Stable has now all the packages and versions we need for T-Pot. As a consequence we can now move to the `stable` branch.
@@ -30,7 +28,6 @@
   - Please run `/opt/tpot/update.sh` for the necessary modifications, omit the reboot and run `/opt/tpot/bin/tped.sh` to (re-)select the NextGen installation type.
   - This update requires the latest Kibana objects as well. Download the latest from https://raw.githubusercontent.com/dtag-dev-sec/tpotce/master/etc/objects/kibana_export.json.zip, unzip and import the objects within Kibana WebUI > Management > Saved Objects > Export / Import". All objects will be overwritten upon import, make sure to run an export first.
 
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 ## 20200115
 - **Prepare integration of CitrixHoneypot**
   - Prepare integration of [CitrixHoneypot](https://github.com/MalwareTech/CitrixHoneypot) by MalwareTech

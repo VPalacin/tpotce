@@ -14,11 +14,7 @@ services:
      - medpot_local
     ports:
      - "2575:2575"
-<<<<<<< HEAD
-    image: "dtagdevsec/medpot:1903"
-=======
     image: "dtagdevsec/medpot:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     read_only: true
     volumes:
      - /data/medpot/log/:/var/log/medpot

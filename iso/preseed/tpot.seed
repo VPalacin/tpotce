@@ -109,11 +109,7 @@ tasksel tasksel/first multiselect ssh-server
 ########################
 ### Package Installation
 ########################
-<<<<<<< HEAD
-d-i pkgsel/include string apache2-utils curl dialog figlet git grc libcrack2 libpq-dev lsb-release netselect-apt net-tools software-properties-common toilet
-=======
 d-i pkgsel/include string apache2-utils cracklib-runtime curl dialog figlet git grc libcrack2 libpq-dev lsb-release netselect-apt net-tools software-properties-common toilet
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 popularity-contest popularity-contest/participate boolean false
 
 #################
@@ -135,11 +131,7 @@ in-target apt-get -y install grub-pc; \
 in-target grub-install --force $(debconf-get partman-auto/disk); \
 update-dev; \
 in-target update-grub; \
-<<<<<<< HEAD
 in-target git clone --depth=1 https://github.com/fierytermite/tpotce /opt/tpot; \
-=======
-in-target git clone --depth=1 https://github.com/fierytermite/tpotce /opt/tpot; \
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 in-target sed -i 's/allow-hotplug/auto/g' /etc/network/interfaces; \
 #in-target apt-get -y remove exim4-base; \
 #in-target apt-get -y autoremove; \

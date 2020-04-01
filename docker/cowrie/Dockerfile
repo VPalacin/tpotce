@@ -4,12 +4,8 @@ FROM alpine
 ADD dist/ /root/dist/
 #
 # Get and install dependencies & packages
-<<<<<<< HEAD
-RUN apk -U add \
-=======
 RUN sed -i 's/dl-cdn/dl-2/g' /etc/apk/repositories && \
     apk -U add \
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
                        bash \
                        build-base \
                        git \
@@ -34,27 +30,17 @@ RUN sed -i 's/dl-cdn/dl-2/g' /etc/apk/repositories && \
 # Install cowrie
     mkdir -p /home/cowrie && \
     cd /home/cowrie && \
-<<<<<<< HEAD
-    git clone --depth=1 https://github.com/micheloosterhof/cowrie -b v2.0.0 && \
-=======
     git clone --depth=1 https://github.com/micheloosterhof/cowrie -b v2.0.2 && \
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     cd cowrie && \
     mkdir -p log && \
     pip3 install --upgrade pip && \
     pip3 install --upgrade -r requirements.txt && \
 #
 # Setup configs
-<<<<<<< HEAD
-    setcap cap_net_bind_service=+ep /usr/bin/python3.7 && \
-    cp /root/dist/cowrie.cfg /home/cowrie/cowrie/cowrie.cfg && \
-    chown cowrie:cowrie -R /home/cowrie/* /usr/lib/python3.7/site-packages/twisted/plugins && \
-=======
     export PYTHON_DIR=$(python3 --version | tr '[A-Z]' '[a-z]' | tr -d ' ' | cut -d '.' -f 1,2 ) && \
     setcap cap_net_bind_service=+ep /usr/bin/$PYTHON_DIR && \
     cp /root/dist/cowrie.cfg /home/cowrie/cowrie/cowrie.cfg && \
     chown cowrie:cowrie -R /home/cowrie/* /usr/lib/$PYTHON_DIR/site-packages/twisted/plugins && \
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 #
 # Start Cowrie once to prevent dropin.cache errors upon container start caused by read-only filesystem
     su - cowrie -c "export PYTHONPATH=/home/cowrie/cowrie:/home/cowrie/cowrie/src && \
@@ -75,12 +61,8 @@ RUN sed -i 's/dl-cdn/dl-2/g' /etc/apk/repositories && \
                     py3-mysqlclient && \
     rm -rf /root/* /tmp/* && \
     rm -rf /var/cache/apk/* && \
-<<<<<<< HEAD
-    rm -rf /home/cowrie/cowrie/cowrie.pid
-=======
     rm -rf /home/cowrie/cowrie/cowrie.pid && \
     unset PYTHON_DIR
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 #
 # Start cowrie
 ENV PYTHONPATH /home/cowrie/cowrie:/home/cowrie/cowrie/src

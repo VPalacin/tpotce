@@ -34,8 +34,6 @@ if [ "$myCHECK" == "0" ];
   else
     echo "Cannot reach Github, starting Logstash without latest translation maps."
 fi
-<<<<<<< HEAD
-=======
 
 # Make sure logstash can put latest logstash template by deleting the old one first
 echo "Removing logstash template."
@@ -44,4 +42,3 @@ echo
 echo "Checking if empty."
 curl -XGET http://elasticsearch:9200/_template/logstash
 echo
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe

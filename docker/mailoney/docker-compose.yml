@@ -20,11 +20,7 @@ services:
      - mailoney_local
     ports:
      - "25:25"
-<<<<<<< HEAD
-    image: "dtagdevsec/mailoney:1903"
-=======
     image: "dtagdevsec/mailoney:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     read_only: true
     volumes:
      - /data/mailoney/log:/opt/mailoney/logs

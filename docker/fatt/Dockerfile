@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-FROM alpine
-=======
 FROM alpine:latest
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 #
 # Include dist
 #ADD dist/ /root/dist/

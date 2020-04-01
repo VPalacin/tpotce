@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-FROM alpine
-=======
 FROM alpine:latest
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 #
 # Include dist
 ADD dist/ /root/dist/
@@ -37,11 +33,7 @@ RUN sed -i 's/dl-cdn/dl-2/g' /etc/apk/repositories && \
 #
 # Supply configs
     mv /root/dist/ews.cfg /opt/ewsposter/ && \
-<<<<<<< HEAD
-    mv /root/dist/*.pem /opt/ewsposter/ && \
-=======
 #    mv /root/dist/*.pem /opt/ewsposter/ && \
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 #
 # Clean up
     apk del build-base \
@@ -55,8 +47,4 @@ RUN sed -i 's/dl-cdn/dl-2/g' /etc/apk/repositories && \
 # Run ewsposter
 STOPSIGNAL SIGINT
 USER ews:ews
-<<<<<<< HEAD
-CMD sleep 10 && exec /usr/bin/python3 -u /opt/ewsposter/ews.py -l 60
-=======
 CMD sleep 10 && exec /usr/bin/python3 -u /opt/ewsposter/ews.py -l $(shuf -i 10-60 -n 1)
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe

@@ -35,11 +35,7 @@ services:
      - "2121:21"
      - "44818:44818"
      - "47808:47808"
-<<<<<<< HEAD
-    image: "dtagdevsec/conpot:1903"
-=======
     image: "dtagdevsec/conpot:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     read_only: true
     volumes:
      - /data/conpot/log:/var/log/conpot
@@ -62,11 +58,7 @@ services:
     ports:
 #     - "161:161"
      - "2404:2404"
-<<<<<<< HEAD
-    image: "dtagdevsec/conpot:1903"
-=======
     image: "dtagdevsec/conpot:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     read_only: true
     volumes:
      - /data/conpot/log:/var/log/conpot
@@ -88,11 +80,7 @@ services:
      - conpot_local_guardian_ast
     ports:
      - "10001:10001"
-<<<<<<< HEAD
-    image: "dtagdevsec/conpot:1903"
-=======
     image: "dtagdevsec/conpot:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     read_only: true
     volumes:
      - /data/conpot/log:/var/log/conpot
@@ -114,11 +102,7 @@ services:
      - conpot_local_ipmi
     ports:
      - "623:623"
-<<<<<<< HEAD
-    image: "dtagdevsec/conpot:1903"
-=======
     image: "dtagdevsec/conpot:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     read_only: true
     volumes:
      - /data/conpot/log:/var/log/conpot
@@ -141,11 +125,7 @@ services:
     ports:
      - "1025:1025"
      - "50100:50100"
-<<<<<<< HEAD
-    image: "dtagdevsec/conpot:1903"
-=======
     image: "dtagdevsec/conpot:2006"
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
     read_only: true
     volumes:
      - /data/conpot/log:/var/log/conpot

@@ -1,15 +1,8 @@
-<<<<<<< HEAD
-FROM alpine 
-#
-# Install packages
-RUN apk -U add \
-=======
 FROM alpine:latest
 #
 # Install packages
 RUN sed -i 's/dl-cdn/dl-2/g' /etc/apk/repositories && \
     apk -U add \
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
             git \
             libcap \
 	    openssl \
@@ -20,12 +13,8 @@ RUN sed -i 's/dl-cdn/dl-2/g' /etc/apk/repositories && \
 #
 # Install CitrixHoneypot from GitHub
 #    git clone --depth=1 https://github.com/malwaretech/citrixhoneypot /opt/citrixhoneypot && \
-<<<<<<< HEAD
-    git clone --depth=1 https://github.com/vorband/CitrixHoneypot /opt/citrixhoneypot && \
-=======
 #    git clone --depth=1 https://github.com/vorband/CitrixHoneypot /opt/citrixhoneypot && \
     git clone --depth=1 https://github.com/t3chn0m4g3/CitrixHoneypot /opt/citrixhoneypot && \
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 #
 # Setup user, groups and configs
     mkdir -p /opt/citrixhoneypot/logs /opt/citrixhoneypot/ssl && \

@@ -33,7 +33,7 @@ services:
     ports:
      - "5555:5555"
     image: "dtagdevsec/adbhoney:1903"
-    read_only: true
+    read_only: false
     volumes:
      - /data/adbhoney/log:/opt/adbhoney/log
      - /data/adbhoney/downloads:/opt/adbhoney/dl
@@ -49,7 +49,7 @@ services:
      - "5000:5000/udp"
      - "8443:8443"
     image: "dtagdevsec/ciscoasa:1903"
-    read_only: true
+    read_only: false
     volumes:
      - /data/ciscoasa/log:/var/log/ciscoasa
 
@@ -71,7 +71,7 @@ services:
      - "161:161"
      - "2404:2404"
     image: "dtagdevsec/conpot:1903"
-    read_only: true
+    read_only: false
     volumes:
      - /data/conpot/log:/var/log/conpot
 
@@ -92,7 +92,7 @@ services:
     ports:
      - "10001:10001"
     image: "dtagdevsec/conpot:1903"
-    read_only: true
+    read_only: false
     volumes:
      - /data/conpot/log:/var/log/conpot
 
@@ -113,7 +113,7 @@ services:
     ports:
      - "623:623"
     image: "dtagdevsec/conpot:1903"
-    read_only: true
+    read_only: false
     volumes:
      - /data/conpot/log:/var/log/conpot
 
@@ -135,7 +135,7 @@ services:
      - "1025:1025"
      - "50100:50100"
     image: "dtagdevsec/conpot:1903"
-    read_only: true
+    read_only: false
     volumes:
      - /data/conpot/log:/var/log/conpot
 
@@ -152,7 +152,7 @@ services:
      - "22:22"
      - "23:23"
     image: "dtagdevsec/cowrie:1903"
-    read_only: true
+    read_only: false
     volumes:
      - /data/cowrie/downloads:/home/cowrie/cowrie/dl
      - /data/cowrie/keys:/home/cowrie/cowrie/etc
@@ -184,7 +184,7 @@ services:
      - "5061:5061"
      - "27017:27017"
     image: "dtagdevsec/dionaea:1903"
-    read_only: true
+    read_only: false
     volumes:
      - /data/dionaea/roots/ftp:/opt/dionaea/var/dionaea/roots/ftp
      - /data/dionaea/roots/tftp:/opt/dionaea/var/dionaea/roots/tftp
@@ -204,7 +204,7 @@ services:
     ports:
      - "9200:9200"
     image: "dtagdevsec/elasticpot:1903"
-    read_only: true
+    read_only: false
     volumes:
      - /data/elasticpot/log:/opt/ElasticpotPY/log
 
@@ -233,7 +233,7 @@ services:
      - "5432:5432"
      - "5900:5900"
     image: "dtagdevsec/heralding:1903"
-    read_only: true
+    read_only: false
     volumes:
      - /data/heralding/log:/var/log/heralding
 
@@ -247,7 +247,7 @@ services:
     cap_add:
      - NET_ADMIN
     image: "dtagdevsec/honeytrap:1903"
-    read_only: true
+    read_only: false
     volumes:
      - /data/honeytrap/attacks:/opt/honeytrap/var/attacks
      - /data/honeytrap/downloads:/opt/honeytrap/var/downloads
@@ -268,7 +268,7 @@ services:
     ports:
      - "25:25"
     image: "dtagdevsec/mailoney:1903"
-    read_only: true
+    read_only: false
     volumes:
      - /data/mailoney/log:/opt/mailoney/logs
 
@@ -281,7 +281,7 @@ services:
     ports:
      - "2575:2575"
     image: "dtagdevsec/medpot:1903"
-    read_only: true
+    read_only: false
     volumes:
      - /data/medpot/log/:/var/log/medpot
 
@@ -302,7 +302,7 @@ services:
     ports:
      - "3389:3389"
     image: "dtagdevsec/rdpy:1903"
-    read_only: true
+    read_only: false
     volumes:
      - /data/rdpy/log:/var/log/rdpy
 
@@ -315,7 +315,7 @@ services:
     networks:
      - tanner_local
     image: "dtagdevsec/redis:1903"
-    read_only: true
+    read_only: false
 
 ## PHP Sandbox service
   tanner_phpox:
@@ -325,7 +325,7 @@ services:
     networks:
      - tanner_local
     image: "dtagdevsec/phpox:1903"
-    read_only: true
+    read_only: false
 
 ## Tanner API Service
   tanner_api:
@@ -337,7 +337,7 @@ services:
     networks:
      - tanner_local
     image: "dtagdevsec/tanner:1903"
-    read_only: true
+    read_only: false
     volumes:
      - /data/tanner/log:/var/log/tanner
     command: tannerapi
@@ -355,7 +355,7 @@ services:
      - tanner_local
     image: "dtagdevsec/tanner:1903"
     command: tannerweb
-    read_only: true
+    read_only: false
     volumes:
      - /data/tanner/log:/var/log/tanner
     depends_on:
@@ -372,7 +372,7 @@ services:
      - tanner_local
     image: "dtagdevsec/tanner:1903"
     command: tanner
-    read_only: true
+    read_only: false
     volumes:
      - /data/tanner/log:/var/log/tanner
      - /data/tanner/files:/opt/tanner/files
@@ -405,7 +405,7 @@ services:
     restart: always
     network_mode: "host"
     image: "dtagdevsec/p0f:1903"
-    read_only: true
+    read_only: false
     volumes:
      - /data/p0f/log:/var/log/p0f
 

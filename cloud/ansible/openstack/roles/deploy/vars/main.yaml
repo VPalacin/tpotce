@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-region_name: eu-de
-=======
->>>>>>> be1a90524a9a12693fd2f46c2f7fc1bc18825bfe
 availability_zone: eu-de-03
 image: Standard_Debian_10_latest
 volume_size: 128
