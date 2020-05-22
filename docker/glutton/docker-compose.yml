@@ -6,7 +6,7 @@ services:
   glutton:
     build: .
     container_name: glutton
-    restart: always
+    #restart: always
     tmpfs:
      - /var/lib/glutton:uid=2000,gid=2000
      - /run:uid=2000,gid=2000

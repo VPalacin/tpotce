@@ -6,7 +6,7 @@ services:
   kibana:
     build: .
     container_name: kibana
-    restart: always
+    #restart: always
 #    depends_on:
 #      elasticsearch:
 #        condition: service_healthy

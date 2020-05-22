@@ -9,7 +9,7 @@ services:
   adbhoney:
     build: .
     container_name: adbhoney
-    restart: always
+    #restart: always
     networks:
      - adbhoney_local
     ports:

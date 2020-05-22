@@ -9,7 +9,7 @@ services:
   citrixhoneypot:
     build: .
     container_name: citrixhoneypot
-    restart: always
+    #restart: always
     networks:
      - citrixhoneypot_local
     ports:

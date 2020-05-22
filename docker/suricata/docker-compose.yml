@@ -6,7 +6,7 @@ services:
   suricata:
     build: .
     container_name: suricata
-    restart: always
+    #restart: always
     environment:
     # For ET Pro ruleset replace "OPEN" with your OINKCODE
      - OINKCODE=OPEN

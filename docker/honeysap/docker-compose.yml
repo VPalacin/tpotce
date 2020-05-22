@@ -9,7 +9,7 @@ services:
   honeysap:
     build: .
     container_name: honeysap
-    restart: always
+    #restart: always
     networks:
      - honeysap_local
     ports:

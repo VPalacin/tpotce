@@ -6,7 +6,7 @@ services:
   ciscoasa:
     build: .
     container_name: ciscoasa
-    restart: always
+    #restart: always
     tmpfs:
      - /tmp/ciscoasa:uid=2000,gid=2000
     network_mode: "host"

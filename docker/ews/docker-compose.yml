@@ -9,7 +9,7 @@ services:
   ewsposter:
     build: .
     container_name: ewsposter
-    restart: always
+    #restart: always
     networks:
      - ewsposter_local
     environment:

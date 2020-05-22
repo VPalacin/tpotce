@@ -9,7 +9,7 @@ services:
   spiderfoot:
     build: .
     container_name: spiderfoot
-    restart: always
+    #restart: always
     networks:
      - spiderfoot_local
     ports:

@@ -9,7 +9,7 @@ services:
   mailoney:
     build: .
     container_name: mailoney
-    restart: always
+    #restart: always
     environment:
      - HPFEEDS_SERVER=
      - HPFEEDS_IDENT=user

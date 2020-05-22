@@ -28,7 +28,7 @@ services:
 # Adbhoney service
   adbhoney:
     container_name: adbhoney
-    restart: always
+    #restart: always
     networks:
      - adbhoney_local
     ports:
@@ -42,7 +42,7 @@ services:
 # Ciscoasa service
   ciscoasa:
     container_name: ciscoasa
-    restart: always
+    #restart: always
     tmpfs:
      - /tmp/ciscoasa:uid=2000,gid=2000
     network_mode: "host"
@@ -57,7 +57,7 @@ services:
 # Conpot IEC104 service
   conpot_IEC104:
     container_name: conpot_iec104
-    restart: always
+    #restart: always
     environment:
      - CONPOT_CONFIG=/etc/conpot/conpot.cfg
      - CONPOT_JSON_LOG=/var/log/conpot/conpot_IEC104.json
@@ -79,7 +79,7 @@ services:
 # Conpot guardian_ast service
   conpot_guardian_ast:
     container_name: conpot_guardian_ast
-    restart: always
+    #restart: always
     environment:
      - CONPOT_CONFIG=/etc/conpot/conpot.cfg
      - CONPOT_JSON_LOG=/var/log/conpot/conpot_guardian_ast.json
@@ -100,7 +100,7 @@ services:
 # Conpot ipmi
   conpot_ipmi:
     container_name: conpot_ipmi
-    restart: always
+    #restart: always
     environment:
      - CONPOT_CONFIG=/etc/conpot/conpot.cfg
      - CONPOT_JSON_LOG=/var/log/conpot/conpot_ipmi.json
@@ -121,7 +121,7 @@ services:
 # Conpot kamstrup_382
   conpot_kamstrup_382:
     container_name: conpot_kamstrup_382
-    restart: always
+    #restart: always
     environment:
      - CONPOT_CONFIG=/etc/conpot/conpot.cfg
      - CONPOT_JSON_LOG=/var/log/conpot/conpot_kamstrup_382.json
@@ -143,7 +143,7 @@ services:
 # Cowrie service
   cowrie:
     container_name: cowrie
-    restart: always
+    #restart: always
     tmpfs:
      - /tmp/cowrie:uid=2000,gid=2000
      - /tmp/cowrie/data:uid=2000,gid=2000
@@ -165,7 +165,7 @@ services:
     container_name: dionaea
     stdin_open: true
     tty: true
-    restart: always
+    #restart: always
     network_mode: "host"
     ports:
      - "20:20"
@@ -199,7 +199,7 @@ services:
 # Elasticpot service
   elasticpot:
     container_name: elasticpot
-    restart: always
+    #restart: always
     networks:
      - elasticpot_local
     ports:
@@ -212,7 +212,7 @@ services:
 # Heralding service
   heralding:
     container_name: heralding
-    restart: always
+    #restart: always
     tmpfs:
      - /tmp/heralding:uid=2000,gid=2000
     networks:
@@ -241,7 +241,7 @@ services:
 # Honeytrap service
   honeytrap:
     container_name: honeytrap
-    restart: always
+    #restart: always
     tmpfs:
      - /tmp/honeytrap:uid=2000,gid=2000
     network_mode: "host"
@@ -257,7 +257,7 @@ services:
 # Mailoney service
   mailoney:
     container_name: mailoney
-    restart: always
+    #restart: always
     environment:
      - HPFEEDS_SERVER=
      - HPFEEDS_IDENT=user
@@ -276,7 +276,7 @@ services:
 # Medpot service
   medpot:
     container_name: medpot
-    restart: always
+    #restart: always
     networks:
      - medpot_local
     ports:
@@ -291,7 +291,7 @@ services:
     container_name: rdpy
     extra_hosts:
      - hpfeeds.example.com:127.0.0.1
-    restart: always
+    #restart: always
     environment:
      - HPFEEDS_SERVER=hpfeeds.example.com
      - HPFEEDS_IDENT=user
@@ -311,7 +311,7 @@ services:
 ## Tanner Redis Service
   tanner_redis:
     container_name: tanner_redis
-    restart: always
+    #restart: always
     tty: true
     networks:
      - tanner_local
@@ -321,7 +321,7 @@ services:
 ## PHP Sandbox service
   tanner_phpox:
     container_name: tanner_phpox
-    restart: always
+    #restart: always
     tty: true
     networks:
      - tanner_local
@@ -331,7 +331,7 @@ services:
 ## Tanner API Service
   tanner_api:
     container_name: tanner_api
-    restart: always
+    #restart: always
     tmpfs:
      - /tmp/tanner:uid=2000,gid=2000
     tty: true
@@ -348,7 +348,7 @@ services:
 ## Tanner WEB Service
   tanner_web:
     container_name: tanner_web
-    restart: always
+    #restart: always
     tmpfs:
      - /tmp/tanner:uid=2000,gid=2000
     tty: true
@@ -365,7 +365,7 @@ services:
 ## Tanner Service
   tanner:
     container_name: tanner
-    restart: always
+    #restart: always
     tmpfs:
      - /tmp/tanner:uid=2000,gid=2000
     tty: true
@@ -385,7 +385,7 @@ services:
 ## Snare Service
   snare:
     container_name: snare
-    restart: always
+    #restart: always
     tty: true
     networks:
      - tanner_local
@@ -403,7 +403,7 @@ services:
 # P0f service
   p0f:
     container_name: p0f
-    restart: always
+    #restart: always
     network_mode: "host"
     image: "dtagdevsec/p0f:1903"
     read_only: false
@@ -413,7 +413,7 @@ services:
 # Suricata service
   suricata:
     container_name: suricata
-    restart: always
+    #restart: always
     environment:
     # For ET Pro ruleset replace "OPEN" with your OINKCODE
      - OINKCODE=OPEN
@@ -434,7 +434,7 @@ services:
 # Cyberchef service
   cyberchef:
     container_name: cyberchef
-    restart: always
+    #restart: always
     networks:
      - cyberchef_local
     ports:
@@ -446,7 +446,7 @@ services:
 ## Elasticsearch service
   elasticsearch:
     container_name: elasticsearch
-    restart: always
+    #restart: always
     environment:
      - bootstrap.memory_lock=true
      - ES_JAVA_OPTS=-Xms1024m -Xmx1024m
@@ -470,7 +470,7 @@ services:
 ## Kibana service
   kibana:
     container_name: kibana
-    restart: always
+    #restart: always
     depends_on:
       elasticsearch:
         condition: service_healthy
@@ -481,7 +481,7 @@ services:
 ## Logstash service
   logstash:
     container_name: logstash
-    restart: always
+    #restart: always
     depends_on:
       elasticsearch:
         condition: service_healthy
@@ -494,7 +494,7 @@ services:
 ## Elasticsearch-head service
   head:
     container_name: head
-    restart: always
+    #restart: always
     depends_on:
       elasticsearch:
         condition: service_healthy
@@ -506,7 +506,7 @@ services:
 # Ewsposter service
   ewsposter:
     container_name: ewsposter
-    restart: always
+    #restart: always
     networks:
      - ewsposter_local
     environment:
@@ -528,7 +528,7 @@ services:
 # Nginx service
   nginx:
     container_name: nginx
-    restart: always
+    #restart: always
     tmpfs:
      - /var/tmp/nginx/client_body
      - /var/tmp/nginx/proxy
@@ -549,7 +549,7 @@ services:
 # Spiderfoot service
   spiderfoot:
     container_name: spiderfoot
-    restart: always
+    #restart: always
     networks:
      - spiderfoot_local
     ports:

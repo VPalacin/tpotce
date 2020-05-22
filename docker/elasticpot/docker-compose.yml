@@ -9,7 +9,7 @@ services:
   elasticpot:
     build: .
     container_name: elasticpot
-    restart: always
+    #restart: always
     networks:
      - elasticpot_local
     ports:

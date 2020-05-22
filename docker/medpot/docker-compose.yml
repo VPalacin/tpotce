@@ -9,7 +9,7 @@ services:
   medpot:
     build: .
     container_name: medpot
-    restart: always
+    #restart: always
     networks:
      - medpot_local
     ports:

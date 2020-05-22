@@ -11,7 +11,7 @@ services:
     container_name: glastopf
     tmpfs:
       - /tmp/glastopf:uid=2000,gid=2000
-    restart: always
+    #restart: always
     networks:
      - glastopf_local
     ports:

@@ -6,7 +6,7 @@ services:
   logstash:
     build: .
     container_name: logstash
-    restart: always
+    #restart: always
 #    depends_on:
 #      elasticsearch:
 #        condition: service_healthy

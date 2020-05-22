@@ -9,7 +9,7 @@ services:
   honeypy:
     build: .
     container_name: honeypy
-    restart: always
+    #restart: always
     networks:
      - honeypy_local
     ports:

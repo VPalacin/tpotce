@@ -9,7 +9,7 @@ services:
   heralding:
     build: .
     container_name: heralding
-    restart: always
+    #restart: always
     tmpfs:
      - /tmp/heralding:uid=2000,gid=2000
     networks:

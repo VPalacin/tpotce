@@ -6,7 +6,7 @@ services:
   nginx:
     build: .
     container_name: nginx
-    restart: always
+    #restart: always
     environment:
     ### If set to YES all changes within Heimdall will remain for the next start
     ### Make sure to uncomment the corresponding volume statements below, or the setting will prevent a successful start of T-Pot.

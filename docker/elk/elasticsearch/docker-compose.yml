@@ -7,7 +7,7 @@ services:
   elasticsearch:
     build: .
     container_name: elasticsearch
-    restart: always
+    #restart: always
     environment:
      - bootstrap.memory_lock=true
      - ES_JAVA_OPTS=-Xms1024m -Xmx1024m

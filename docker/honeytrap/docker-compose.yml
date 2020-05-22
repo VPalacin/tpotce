@@ -6,7 +6,7 @@ services:
   honeytrap:
     build: .
     container_name: honeytrap
-    restart: always
+    #restart: always
     tmpfs:
      - /tmp/honeytrap:uid=2000,gid=2000
     network_mode: "host"

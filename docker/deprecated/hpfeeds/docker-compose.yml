@@ -10,7 +10,7 @@ services:
   hpfeeds:
     build: .
     container_name: hpfeeds
-    restart: always
+    #restart: always
     stop_signal: SIGKILL
     networks:
      - hpfeeds_local

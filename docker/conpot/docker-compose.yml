@@ -14,7 +14,7 @@ services:
   conpot_default:
     build: .
     container_name: conpot_default
-    restart: always
+    #restart: always
     environment:
      - CONPOT_CONFIG=/etc/conpot/conpot.cfg
      - CONPOT_JSON_LOG=/var/log/conpot/conpot_default.json
@@ -28,13 +28,13 @@ services:
     ports:
 #    - "69:69"        
      - "80:80"
-     - "102:102"
-     - "161:161"
-     - "502:502"
+     - "202:202"
+     - "261:261"
+     - "302:302"
 #     - "623:623"
-     - "2121:21"
-     - "44818:44818"
-     - "47808:47808"
+     - "1212:21"
+     - "22414:22414"
+     - "36706:36706"
     image: "dtagdevsec/conpot:2006"
     read_only: true
     volumes:
@@ -44,7 +44,7 @@ services:
   conpot_IEC104:
     build: .
     container_name: conpot_IEC104
-    restart: always
+    #restart: always
     environment:
      - CONPOT_CONFIG=/etc/conpot/conpot.cfg
      - CONPOT_JSON_LOG=/var/log/conpot/conpot_IEC104.json
@@ -67,7 +67,7 @@ services:
   conpot_guardian_ast:
     build: .
     container_name: conpot_guardian_ast
-    restart: always
+    #restart: always
     environment:
      - CONPOT_CONFIG=/etc/conpot/conpot.cfg
      - CONPOT_JSON_LOG=/var/log/conpot/conpot_guardian_ast.json
@@ -89,7 +89,7 @@ services:
   conpot_ipmi:
     build: .
     container_name: conpot_ipmi
-    restart: always
+    #restart: always
     environment:
      - CONPOT_CONFIG=/etc/conpot/conpot.cfg
      - CONPOT_JSON_LOG=/var/log/conpot/conpot_ipmi.json
@@ -111,7 +111,7 @@ services:
   conpot_kamstrup_382:
     build: .
     container_name: conpot_kamstrup_382
-    restart: always
+    #restart: always
     environment:
      - CONPOT_CONFIG=/etc/conpot/conpot.cfg
      - CONPOT_JSON_LOG=/var/log/conpot/conpot_kamstrup_382.json

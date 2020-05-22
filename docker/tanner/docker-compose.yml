@@ -9,7 +9,7 @@ services:
   tanner_redis:
     build: ./redis
     container_name: tanner_redis
-    restart: always
+    #restart: always
     stop_signal: SIGKILL
     tty: true
     networks:
@@ -21,7 +21,7 @@ services:
   tanner_phpox:
     build: ./phpox
     container_name: tanner_phpox
-    restart: always
+    #restart: always
     stop_signal: SIGKILL
     tmpfs:
      - /tmp:uid=2000,gid=2000
@@ -35,7 +35,7 @@ services:
   tanner_api:
     build: ./tanner
     container_name: tanner_api
-    restart: always
+    #restart: always
     stop_signal: SIGKILL
     tmpfs:
      - /tmp/tanner:uid=2000,gid=2000
@@ -54,7 +54,7 @@ services:
   tanner_web:
     build: ./tanner
     container_name: tanner_web
-    restart: always
+    #restart: always
     stop_signal: SIGKILL
     tmpfs:
      - /tmp/tanner:uid=2000,gid=2000
@@ -75,7 +75,7 @@ services:
   tanner:
     build: ./tanner
     container_name: tanner
-    restart: always
+    #restart: always
     stop_signal: SIGKILL
     tmpfs:
      - /tmp/tanner:uid=2000,gid=2000
@@ -97,7 +97,7 @@ services:
   snare:
     build: ./snare
     container_name: snare
-    restart: always
+    #restart: always
     stop_signal: SIGKILL
     tty: true
     networks:
