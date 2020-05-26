@@ -4,8 +4,8 @@ FROM alpine:latest
 ADD dist/ /root/dist/
 #
 # Install packages
-#RUN sed -i 's/dl-cdn/dl-2/g' /etc/apk/repositories && \
-RUN    apk -U add \
+RUN sed -i 's/dl-cdn/dl-2/g' /etc/apk/repositories && \
+    apk -U --no-cache add \
                  ca-certificates \
                  curl \
                  file \
